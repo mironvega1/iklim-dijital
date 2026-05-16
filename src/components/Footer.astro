@@ -6,8 +6,6 @@ const links = [
   { label: "Başvuru", href: "#basvuru" },
   { label: "100 Mesaj Hedefi", href: "#100-mesaj" },
   { label: "SSS", href: "#sss" },
-  { label: "İletişim", href: siteConfig.whatsappUrl },
-  { label: "Instagram", href: siteConfig.instagramUrl },
 ];
 ---
 
@@ -21,6 +19,14 @@ const links = [
         <p class="mt-4 max-w-md text-sm leading-7 text-textMuted">
           Klima firmalarına özel Meta Ads odaklı müşteri kazanım sistemi.
         </p>
+        <div class="mt-5 flex flex-col gap-2 text-sm font-semibold sm:flex-row sm:gap-5">
+          <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer" class="text-textMuted transition hover:text-lime">
+            Instagram: @iklimdijital
+          </a>
+          <a href={siteConfig.whatsappUrl} target="_blank" rel="noreferrer" class="text-textMuted transition hover:text-lime">
+            WhatsApp: 0544 965 23 14
+          </a>
+        </div>
       </div>
       <nav class="flex flex-wrap gap-4 md:justify-end" aria-label="Footer menü">
         {links.map((link) => (

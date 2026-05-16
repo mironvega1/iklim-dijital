@@ -2,50 +2,90 @@
 import SectionHeader from "./SectionHeader.astro";
 
 const reportItems = [
-  "Gelen mesaj sayısı",
-  "Mesaj başı maliyet",
-  "En çok talep gelen hizmet",
-  "En iyi çalışan bölge",
-  "WhatsApp talep akışı",
-  "Bir sonraki optimizasyon önerisi",
+  { title: "Gelen mesaj sayısı", detail: "Haftalık akış takip edilir" },
+  { title: "Ortalama mesaj maliyeti", detail: "Bütçe nereye gidiyor görülür" },
+  { title: "En çok talep gelen hizmet", detail: "Bakım, arıza veya montaj ayrılır" },
+  { title: "En iyi çalışan bölge", detail: "Uygun ilçeler öne çıkarılır" },
+  { title: "WhatsApp talep akışı", detail: "Mesajların kalitesi okunur" },
+  { title: "Bir sonraki öneri", detail: "Gelecek ayın yönü netleşir" },
+];
+
+const serviceSignals = ["Bakım", "Arıza", "Montaj"];
+const messageFlow = [
+  "Klima bakım fiyatı ve uygun gün soruldu",
+  "Arıza için servis bölgesi teyit edildi",
+  "Montaj talebi doğru ilçeye yönlendirildi",
 ];
 ---
 
 <section class="py-20 md:py-28">
   <div class="section-shell">
-    <div class="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
-      <SectionHeader
-        align="left"
-        title="Reklam sürecinde neyi takip ediyoruz?"
-        text="Reklam yönetimini uçak kokpiti gibi karmaşık tablolarla değil, klima firmasının karar almasını kolaylaştıran sade göstergelerle takip ederiz."
-      />
+    <SectionHeader
+      title="Reklam sürecinde neyi takip ediyoruz?"
+      text="Sadece reklam açmakla kalmıyoruz. Hangi hizmetin, hangi bölgenin ve hangi mesaj akışının daha iyi çalıştığını takip ederek reklam bütçesini doğru alana yönlendiriyoruz."
+    />
 
-      <div class="glass-panel rounded-[8px] p-5 md:p-7">
-        <div class="mb-6 flex items-center justify-between gap-4">
-          <div>
-            <p class="text-xs font-bold uppercase text-textMuted">Sade Simülasyon</p>
-            <h3 class="mt-1 text-2xl font-black text-white">Takip Edilen Veriler</h3>
-          </div>
-          <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-lime">Temsili</span>
-        </div>
-
-        <div class="grid gap-3 sm:grid-cols-2">
-          {reportItems.map((item, index) => (
-            <div class="rounded-[8px] border border-white/10 bg-[#151515] p-4">
-              <div class="mb-4 flex items-center justify-between gap-3">
-                <p class="text-sm font-bold text-white">{item}</p>
-                <span class="text-xs font-black text-lime">0{index + 1}</span>
-              </div>
-              <div class="h-2 rounded-full bg-white/10">
-                <div class="h-2 rounded-full bg-lime" style={`width: ${46 + index * 7}%`}></div>
-              </div>
+    <div class="glass-panel relative mt-12 overflow-hidden rounded-[8px] p-5 md:p-8">
+      <div class="absolute right-0 top-0 h-72 w-72 translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/20 blur-3xl"></div>
+      <div class="relative grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <div class="mb-6 flex items-center justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase text-textMuted">Temsili reklam takip alanı</p>
+              <h3 class="mt-1 text-2xl font-black text-white">Klima firması için sade görünüm</h3>
             </div>
-          ))}
+            <span class="rounded-full border border-lime/30 bg-lime/10 px-3 py-1 text-xs font-bold text-lime">Gerçek veri değildir</span>
+          </div>
+
+          <div class="grid gap-3 sm:grid-cols-2">
+            {reportItems.map((item, index) => (
+              <div class="rounded-[8px] border border-white/10 bg-[#151515] p-4">
+                <div class="mb-4 flex items-center justify-between gap-3">
+                  <p class="text-sm font-extrabold text-white">{item.title}</p>
+                  <span class="text-xs font-black text-lime">0{index + 1}</span>
+                </div>
+                <p class="text-xs leading-6 text-textMuted">{item.detail}</p>
+                <div class="mt-4 h-2 rounded-full bg-white/10">
+                  <div class="h-2 rounded-full bg-lime" style={`width: ${44 + index * 8}%`}></div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-5 grid gap-3 sm:grid-cols-3">
+            {serviceSignals.map((service) => (
+              <div class="rounded-[8px] border border-lime/20 bg-lime/10 p-4">
+                <p class="text-sm font-black text-white">{service}</p>
+                <p class="mt-2 text-xs leading-5 text-textMuted">Talep açısı ayrı izlenir</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <p class="mt-5 text-xs leading-6 text-textMuted">
-          Bu alan temsili görünüm sunar. Gerçek sonuçlar şehir, bütçe, sezon, kreatif ve hizmet bölgesine göre değişebilir.
-        </p>
+
+        <aside class="rounded-[8px] border border-white/10 bg-[#0c0c0c] p-5">
+          <div>
+            <p class="text-xs font-bold uppercase text-textMuted">WhatsApp talep akışı</p>
+            <h3 class="mt-1 text-xl font-black text-white">Mesajlar ne anlatıyor?</h3>
+          </div>
+          <div class="mt-6 space-y-3">
+            {messageFlow.map((message, index) => (
+              <div class:list={["rounded-[8px] border p-4", index === 1 ? "ml-6 border-lime/30 bg-lime/10" : "border-white/10 bg-white/[0.035]"]}>
+                <p class="text-sm leading-6 text-white/90">{message}</p>
+              </div>
+            ))}
+          </div>
+          <div class="mt-6 rounded-[8px] border border-white/10 bg-[#151515] p-4">
+            <p class="text-xs font-bold uppercase text-lime">Bir sonraki adım</p>
+            <p class="mt-2 text-sm leading-6 text-textMuted">
+              Daha çok talep gelen hizmet ve doğru bölge birlikte değerlendirilir.
+            </p>
+          </div>
+        </aside>
       </div>
+
+      <p class="relative mt-6 text-xs leading-6 text-textMuted">
+        Bu alan temsili görünüm sunar. Gerçek sonuçlar şehir, bütçe, sezon, kreatif ve hizmet bölgesine göre değişebilir.
+      </p>
     </div>
   </div>
 </section>

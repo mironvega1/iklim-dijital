@@ -24,9 +24,17 @@ const navItems = [
           {item.label}
         </a>
       ))}
+      <a
+        href={siteConfig.instagramUrl}
+        target="_blank"
+        rel="noreferrer"
+        class="text-sm font-semibold text-textMuted transition hover:text-lime"
+      >
+        Instagram
+      </a>
     </nav>
 
-    <CTAButton label="Görüşme Talep Et" class="hidden md:inline-flex" />
+    <CTAButton href="#basvuru" label="Görüşme Talep Et" class="hidden md:inline-flex" />
     <CTAButton label="WhatsApp" class="px-4 md:hidden" />
   </div>
 </header>

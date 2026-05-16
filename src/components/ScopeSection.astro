@@ -1,0 +1,48 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import Card from "./Card.astro";
+
+const scopeItems = [
+  {
+    title: "Meta Ads reklam yönetimi",
+    text: "Reklamlar klima firmalarının talep aldığı hizmetlere ve bölgelere göre planlanır.",
+  },
+  {
+    title: "WhatsApp mesaj yönlendirmesi",
+    text: "Potansiyel müşterinin hızlıca soru sorabileceği sade bir mesaj akışı oluşturulur.",
+  },
+  {
+    title: "Bakım, temizlik, arıza ve montaj reklam açıları",
+    text: "Her hizmet için müşterinin ihtiyacına uygun farklı mesaj ve teklif dili hazırlanır.",
+  },
+  {
+    title: "Hizmet bölgesine göre reklam planı",
+    text: "Servis verilmeyen bölgeler yerine gerçekten çalışmak istediğiniz alanlara odaklanılır.",
+  },
+  {
+    title: "Aylık sosyal medya içerik desteği",
+    text: "Firmanızın güven veren görünümünü destekleyecek içerik planı oluşturulabilir.",
+  },
+  {
+    title: "Mesaj maliyeti ve talep kalitesi takibi",
+    text: "Sadece kaç mesaj geldiği değil, hangi mesajların işe dönüşme potansiyeli taşıdığı izlenir.",
+  },
+];
+---
+
+<section class="py-20 md:py-28">
+  <div class="section-shell">
+    <SectionHeader
+      title="Sizin için neyi kuruyoruz?"
+      text="Fiyat bilgisi görüşmede netleşir; sitede odak, klima firmanız için kurulacak müşteri mesajı akışının kapsamını açıkça anlatmaktır."
+    />
+    <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {scopeItems.map((item, index) => (
+        <Card title={item.title} text={item.text}>
+          <div class="mb-5 h-1.5 w-16 rounded-full bg-lime"></div>
+          <span class="text-xs font-black text-white/30">0{index + 1}</span>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

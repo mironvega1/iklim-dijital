@@ -8,12 +8,15 @@ import CTAButton from "./CTAButton.astro";
       <div class="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/20 blur-3xl"></div>
       <div class="relative mx-auto max-w-3xl">
         <h2 class="text-balance text-3xl font-black leading-tight text-white md:text-5xl">
-          Klima firmanız için düzenli müşteri akışı kurmaya başlayalım
+          Klima firmanız için daha düzenli müşteri mesajı akışı kuralım
         </h2>
         <p class="mt-5 text-base leading-8 text-textMuted md:text-lg">
-          Firmanızın hizmet bölgesini ve mevcut reklam durumunu inceleyelim. Size uygun aylık çalışma modelini birlikte belirleyelim.
+          Hizmet bölgenizi, reklam bütçenizi ve hangi hizmetten daha çok müşteri almak istediğinizi paylaşın. Firmanız için uygun olup olmadığını birlikte değerlendirelim.
         </p>
-        <CTAButton label="WhatsApp'tan Bilgi Al" class="mt-8" />
+        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <CTAButton href="#basvuru" label="Başvuru Yap" />
+          <CTAButton label="WhatsApp'tan Bilgi Al" variant="secondary" />
+        </div>
         <p class="mt-5 text-xs font-bold uppercase text-lime">Sadece klima firmaları için çalışıyoruz.</p>
       </div>
     </div>

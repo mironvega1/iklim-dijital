@@ -23,6 +23,10 @@ const problems = [
     title: "WhatsApp mesajı geliyor ama randevuya dönüşmüyor",
     text: "Mesaj akışı, sorular ve yönlendirme doğru kurulmazsa potansiyel müşteri kaybolur.",
   },
+  {
+    title: "Yanlış bölgeden gelen mesaj boşa zaman kaybettirir",
+    text: "Servis verilmeyen ilçelerden gelen talepler reklam bütçesini tüketir ama işe dönüşmez.",
+  },
 ];
 ---
 
@@ -32,11 +36,14 @@ const problems = [
       title="Klima firmalarının asıl problemi reklam değil, düzensiz müşteri akışı"
       text="Çoğu klima firması reklam verir ama düzenli mesaj alamaz. Gelen mesajlar fiyat sorup kaybolabilir, yanlış bölgeden gelebilir veya randevuya dönüşmeyebilir. İklimDijital, reklamı sadece görünürlük için değil, ölçülebilir talep oluşturmak için kurgular."
     />
-    <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+    <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {problems.map((problem, index) => (
-        <Card title={problem.title} text={problem.text}>
-          <div class="mb-5 grid size-11 place-items-center rounded-[8px] border border-white/10 bg-white/[0.04] text-sm font-black text-lime">
+        <Card title={problem.title} text={problem.text} class="min-h-56">
+          <div class="mb-5 flex items-center gap-3">
+            <span class="grid size-11 place-items-center rounded-[8px] border border-lime/30 bg-lime/10 text-sm font-black text-lime">
             0{index + 1}
+            </span>
+            <span class="h-px flex-1 bg-gradient-to-r from-lime/60 to-transparent"></span>
           </div>
         </Card>
       ))}
