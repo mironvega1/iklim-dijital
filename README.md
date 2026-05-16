@@ -28,7 +28,7 @@ Build çıktısı `dist` klasörüne üretilir.
 
 Deploy akışı `.github/workflows/deploy.yml` içindedir. `main` branch'e push geldiğinde:
 
-1. Bağımlılıklar `npm ci` ile kurulur.
+1. Bağımlılıklar `npm install` ile kurulur.
 2. `npm run build` çalışır.
 3. `dist` klasörü GitHub Pages'e deploy edilir.
 
