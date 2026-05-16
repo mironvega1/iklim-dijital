@@ -6,18 +6,22 @@ const solutions = [
   {
     title: "Hizmet bazlı reklam açıları",
     text: "Bakım, temizlik, arıza ve montaj için ayrı mesaj dili ve kreatif açısı oluşturulur.",
+    detail: "Tek bir genel reklam yerine her hizmetin karar sebebi ayrı yazılır. Böylece bakım isteyen kişiyle arıza yaşayan kişi aynı sepete atılmaz.",
   },
   {
     title: "WhatsApp mesaj yönlendirme",
     text: "Reklamlar, müşterinin hızlıca bilgi alabileceği WhatsApp mesaj akışına yönlendirilir.",
+    detail: "Müşteri reklamdan sonra kaybolmadan WhatsApp'a gelir. İlk mesajın konusu anlaşılır olduğu için görüşme daha hızlı başlar.",
   },
   {
     title: "Bölgeye göre kampanya kurgusu",
     text: "Hizmet alınabilecek bölgeler, talep yoğunluğu ve ulaşım sınırları kampanya kurgusuna dahil edilir.",
+    detail: "Servis verilmeyen bölgelere bütçe yakılmaz. Hangi ilçelerde iş almak istiyorsanız reklam dili ve yönü buna göre planlanır.",
   },
   {
     title: "Veriye göre optimizasyon",
     text: "Mesaj maliyeti, talep kalitesi ve hizmet bölgesi verilerine göre reklamlar optimize edilir.",
+    detail: "Sadece ucuz mesaj değil, işe dönüşme ihtimali olan talep aranır. Hangi hizmet daha anlamlı mesaj getiriyorsa bütçe oraya kaydırılır.",
   },
 ];
 ---
@@ -41,7 +45,7 @@ const solutions = [
 
     <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {solutions.map((solution) => (
-        <Card title={solution.title} text={solution.text} />
+        <Card title={solution.title} text={solution.text} detail={solution.detail} actionLabel="Nasıl çalışır?" />
       ))}
     </div>
   </div>

@@ -35,6 +35,16 @@ const services = [
           </a>
           <p class="mt-2 text-xs font-semibold text-textMuted">Instagram'da bizi inceleyin.</p>
         </div>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          <button type="button" class="rounded-[8px] border border-white/10 bg-[#101010] p-4 text-left transition hover:border-lime/35 hover:bg-lime/[0.07]">
+            <p class="text-xs font-black uppercase text-lime">Veri saklanmaz</p>
+            <p class="mt-2 text-xs font-semibold leading-6 text-textMuted">Form bilgileri tarayıcıda tutulmaz; WhatsApp mesajına çevrilir.</p>
+          </button>
+          <button type="button" class="rounded-[8px] border border-white/10 bg-[#101010] p-4 text-left transition hover:border-lime/35 hover:bg-lime/[0.07]">
+            <p class="text-xs font-black uppercase text-lime">Secret yok</p>
+            <p class="mt-2 text-xs font-semibold leading-6 text-textMuted">Frontend içinde API key, token veya gizli entegrasyon bulunmaz.</p>
+          </button>
+        </div>
       </div>
 
       <form
@@ -47,19 +57,19 @@ const services = [
         <div class="grid gap-4 md:grid-cols-2">
           <label class="block">
             <span class="text-sm font-bold text-white">Ad Soyad <span class="text-lime">*</span></span>
-            <input required name="Ad Soyad" type="text" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="Adınız ve soyadınız" />
+            <input required name="Ad Soyad" type="text" autocomplete="name" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="Adınız ve soyadınız" />
           </label>
           <label class="block">
             <span class="text-sm font-bold text-white">Firma Adı</span>
-            <input name="Firma" type="text" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="Firma adınız" />
+            <input name="Firma" type="text" autocomplete="organization" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="Firma adınız" />
           </label>
           <label class="block">
             <span class="text-sm font-bold text-white">Telefon Numarası <span class="text-lime">*</span></span>
-            <input required name="Telefon" type="tel" inputmode="tel" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="05xx xxx xx xx" />
+            <input required name="Telefon" type="tel" inputmode="tel" autocomplete="tel" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="05xx xxx xx xx" />
           </label>
           <label class="block">
             <span class="text-sm font-bold text-white">Şehir / İlçe <span class="text-lime">*</span></span>
-            <input required name="Şehir / İlçe" type="text" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="İstanbul / Kadıköy" />
+            <input required name="Şehir / İlçe" type="text" autocomplete="address-level2" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="İstanbul / Kadıköy" />
           </label>
           <label class="block">
             <span class="text-sm font-bold text-white">Hizmet Bölgesi</span>
@@ -121,9 +131,17 @@ const services = [
       const phoneValue = phoneInput instanceof HTMLInputElement ? phoneInput.value.trim() : "";
       const digitCount = phoneValue.replace(/\D/g, "").length;
 
-      if (missingField || digitCount < 10) {
+      if (missingField) {
         if (errorBox) {
-          errorBox.textContent = digitCount < 10 ? "Lütfen geçerli bir telefon numarası girin." : "Lütfen zorunlu alanları doldurun.";
+          errorBox.textContent = "Lütfen zorunlu alanları doldurun.";
+          errorBox.classList.remove("hidden");
+        }
+        return;
+      }
+
+      if (digitCount < 10) {
+        if (errorBox) {
+          errorBox.textContent = "Lütfen geçerli bir telefon numarası girin.";
           errorBox.classList.remove("hidden");
         }
         return;

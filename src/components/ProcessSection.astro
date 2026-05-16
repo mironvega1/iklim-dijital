@@ -2,11 +2,26 @@
 import SectionHeader from "./SectionHeader.astro";
 
 const steps = [
-  "Firmanızın hizmet bölgesi ve hizmet türleri analiz edilir.",
-  "Reklam hesabı, kampanya yapısı ve WhatsApp yönlendirmesi hazırlanır.",
-  "Bakım, temizlik, montaj ve arıza için ayrı reklam açıları oluşturulur.",
-  "Gelen mesajlar, maliyetler ve talep kalitesi takip edilir.",
-  "Çalışan reklamlar güçlendirilir, bütçe doğru alana yönlendirilir.",
+  {
+    title: "Firmanızın hizmet bölgesi ve hizmet türleri analiz edilir.",
+    detail: "Hangi ilçelere servis verdiğiniz, hangi hizmetten daha çok müşteri istediğiniz ve mevcut reklam durumunuz netleştirilir.",
+  },
+  {
+    title: "Reklam hesabı, kampanya yapısı ve WhatsApp yönlendirmesi hazırlanır.",
+    detail: "Amaç teknik bir kurulum göstermek değil; müşterinin reklama tıklayıp hızlıca doğru WhatsApp konuşmasına gelmesini sağlamaktır.",
+  },
+  {
+    title: "Bakım, temizlik, montaj ve arıza için ayrı reklam açıları oluşturulur.",
+    detail: "Her hizmet için farklı ihtiyaç, farklı itiraz ve farklı karar sebebi olduğu için mesajlar ayrı hazırlanır.",
+  },
+  {
+    title: "Gelen mesajlar, maliyetler ve talep kalitesi takip edilir.",
+    detail: "Sadece kaç mesaj geldiğine değil; mesajın bölgesi, hizmet tipi ve görüşmeye uygunluğuna da bakılır.",
+  },
+  {
+    title: "Çalışan reklamlar güçlendirilir, bütçe doğru alana yönlendirilir.",
+    detail: "Daha anlamlı talep üreten hizmet ve bölge öne çıkarılır. Zayıf kalan açı değiştirilir veya azaltılır.",
+  },
 ];
 ---
 
@@ -19,7 +34,19 @@ const steps = [
           <span class="mb-8 inline-grid size-12 place-items-center rounded-full bg-lime text-sm font-black text-ink">
             {index + 1}
           </span>
-          <h3 class="text-lg font-extrabold leading-7 text-white">{step}</h3>
+          <h3 class="text-lg font-extrabold leading-7 text-white">{step.title}</h3>
+          <button
+            type="button"
+            class="process-toggle mt-6 inline-flex min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-black uppercase text-white transition hover:border-lime/40 hover:text-lime focus:outline-none focus-visible:ring-2 focus-visible:ring-lime"
+            aria-expanded="false"
+            aria-controls={`process-detail-${index}`}
+            data-process-toggle
+          >
+            Adım detayı
+          </button>
+          <p id={`process-detail-${index}`} class="mt-4 rounded-[8px] border border-lime/20 bg-lime/[0.07] p-4 text-xs font-semibold leading-6 text-white/80" hidden>
+            {step.detail}
+          </p>
           {index < steps.length - 1 && (
             <span class="absolute -right-2 top-11 hidden h-px w-4 bg-lime/50 lg:block" aria-hidden="true"></span>
           )}
@@ -27,4 +54,19 @@ const steps = [
       ))}
     </div>
   </div>
+
+  <script>
+    document.querySelectorAll("[data-process-toggle]").forEach((button) => {
+      if (!(button instanceof HTMLButtonElement) || button.dataset.bound === "true") return;
+      button.dataset.bound = "true";
+      button.addEventListener("click", () => {
+        const panelId = button.getAttribute("aria-controls");
+        const panel = panelId ? document.getElementById(panelId) : null;
+        const isOpen = button.getAttribute("aria-expanded") === "true";
+
+        button.setAttribute("aria-expanded", String(!isOpen));
+        if (panel) panel.hidden = isOpen;
+      });
+    });
+  </script>
 </section>

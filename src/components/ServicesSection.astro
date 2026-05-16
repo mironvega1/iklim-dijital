@@ -6,18 +6,22 @@ const services = [
   {
     title: "Klima Bakım",
     text: "Kötü koku, performans düşüşü ve yaz öncesi bakım ihtiyacı olan kişilere ulaşılır.",
+    detail: "Bu hizmette mesaj dili konfor, hijyen, yaz öncesi hazırlık ve performans kaybı üzerinden kurulur.",
   },
   {
     title: "Klima Temizlik",
     text: "Filtre, iç ünite ve genel temizlik ihtiyacı olan müşteriler hedeflenir.",
+    detail: "Temizlik tarafında sağlık, koku, toz ve düzenli kullanım ihtiyacı daha anlaşılır bir dille anlatılır.",
   },
   {
     title: "Klima Arıza",
     text: "Soğutmama, su akıtma, ses yapma gibi sorun yaşayan kişilerden mesaj alınır.",
+    detail: "Arıza taleplerinde hız ve güven önemlidir. Mesaj akışı sorunun türünü ve servis bölgesini hızlıca netleştirmeye çalışır.",
   },
   {
     title: "Klima Montaj / Sökme-Takma",
     text: "Yeni klima almış veya yer değişimi hizmeti arayan kişilere ulaşılır.",
+    detail: "Montaj tarafında işçilik, güven, uygun zaman ve bölge uygunluğu öne çıkarılır.",
   },
 ];
 ---
@@ -30,7 +34,7 @@ const services = [
     />
     <div class="mt-12 grid gap-4 md:grid-cols-2">
       {services.map((service) => (
-        <Card title={service.title} text={service.text} class="min-h-48">
+        <Card title={service.title} text={service.text} detail={service.detail} actionLabel="Hizmet açısını gör" class="min-h-48">
           <div class="mb-5 h-1.5 w-20 rounded-full bg-lime"></div>
         </Card>
       ))}

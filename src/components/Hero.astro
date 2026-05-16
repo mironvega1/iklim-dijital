@@ -2,10 +2,10 @@
 import CTAButton from "./CTAButton.astro";
 
 const metrics = [
-  "1 niş: sadece klima firmaları",
-  "Meta Ads odaklı sistem",
-  "Uygunluk başvurusu",
-  "WhatsApp odaklı akış",
+  { label: "1 niş: sadece klima firmaları", href: "#sistem" },
+  { label: "Büyümek isteyen firmalar", href: "#basvuru" },
+  { label: "100 mesaj hedefi şeffaflığı", href: "#100-mesaj" },
+  { label: "WhatsApp odaklı akış", href: "#basvuru" },
 ];
 
 const serviceTags = ["Bakım", "Temizlik", "Arıza", "Montaj"];
@@ -36,9 +36,10 @@ const serviceTags = ["Bakım", "Temizlik", "Arıza", "Montaj"];
 
       <div class="mt-10 grid gap-3 sm:grid-cols-2">
         {metrics.map((metric) => (
-          <div class="rounded-[8px] border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-bold text-white/80">
-            {metric}
-          </div>
+          <a href={metric.href} class="group rounded-[8px] border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-bold text-white/80 transition hover:border-lime/40 hover:bg-lime/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-lime">
+            {metric.label}
+            <span class="ml-2 text-lime opacity-0 transition group-hover:opacity-100" aria-hidden="true">→</span>
+          </a>
         ))}
       </div>
     </div>
@@ -58,7 +59,7 @@ const serviceTags = ["Bakım", "Temizlik", "Arıza", "Montaj"];
 
         <div class="mb-6 flex flex-wrap gap-2">
           {serviceTags.map((tag) => (
-            <span class="rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-xs font-bold text-white/80">{tag}</span>
+            <a href="#basvuru" class="rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-xs font-bold text-white/80 transition hover:border-lime/40 hover:bg-lime/10 hover:text-white">{tag}</a>
           ))}
         </div>
 

@@ -6,14 +6,17 @@ const advantages = [
   {
     title: "Sektör dilini biliyoruz",
     text: "Klima müşterisinin aciliyeti, fiyat hassasiyeti ve hizmet beklentisi farklıdır.",
+    detail: "Klima müşterisi bazen hemen servis ister, bazen yaz gelmeden bakım arar. Mesaj dili bu farkı yakalamalıdır.",
   },
   {
     title: "Hizmet türüne göre reklam açısı kuruyoruz",
     text: "Bakım, arıza, temizlik ve montaj için aynı metinle reklam çıkmayız.",
+    detail: "Her hizmet ayrı niyet taşır. Bu yüzden reklam metni, görsel açı ve WhatsApp konuşması hizmete göre ayrılır.",
   },
   {
     title: "WhatsApp mesaj akışını randevuya uygun hale getiriyoruz",
     text: "Mesajın hızlıca hizmet bölgesi, ihtiyaç ve uygun zaman konuşmasına dönmesini hedefleriz.",
+    detail: "İlk konuşma doğru kurulursa müşteriyle gereksiz mesaj trafiği azalır ve randevu ihtimali daha net anlaşılır.",
   },
 ];
 ---
@@ -26,7 +29,7 @@ const advantages = [
     />
     <div class="mt-12 grid gap-4 md:grid-cols-3">
       {advantages.map((item) => (
-        <Card title={item.title} text={item.text} />
+        <Card title={item.title} text={item.text} detail={item.detail} actionLabel="Neden önemli?" />
       ))}
     </div>
   </div>

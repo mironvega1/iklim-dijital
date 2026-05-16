@@ -3,10 +3,20 @@ interface Props {
   title?: string;
   text?: string;
   eyebrow?: string;
+  detail?: string;
+  actionLabel?: string;
   class?: string;
 }
 
-const { title, text, eyebrow, class: className = "" } = Astro.props;
+const {
+  title,
+  text,
+  eyebrow,
+  detail,
+  actionLabel = "Detayı gör",
+  class: className = "",
+} = Astro.props;
+const detailId = detail ? `card-detail-${crypto.randomUUID()}` : undefined;
 ---
 
 <article class:list={["premium-card rounded-[8px] p-6", className]}>
@@ -14,4 +24,42 @@ const { title, text, eyebrow, class: className = "" } = Astro.props;
   {title && <h3 class="text-xl font-extrabold text-white">{title}</h3>}
   {text && <p class="mt-3 text-sm leading-7 text-textMuted">{text}</p>}
   <slot />
+  {detail && (
+    <>
+      <button
+        type="button"
+        class="card-detail-toggle mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-black uppercase text-white transition hover:border-lime/40 hover:bg-lime/10 hover:text-lime focus:outline-none focus-visible:ring-2 focus-visible:ring-lime"
+        aria-expanded="false"
+        aria-controls={detailId}
+        data-detail-toggle
+      >
+        <span>{actionLabel}</span>
+        <span class="card-detail-icon grid size-5 place-items-center rounded-full bg-lime text-ink" aria-hidden="true">+</span>
+      </button>
+      <div
+        id={detailId}
+        class="mt-4 rounded-[8px] border border-lime/20 bg-lime/[0.07] p-4 text-xs font-semibold leading-6 text-white/80"
+        hidden
+      >
+        {detail}
+      </div>
+    </>
+  )}
 </article>
+
+<script>
+  document.querySelectorAll("[data-detail-toggle]").forEach((button) => {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.bound === "true") return;
+    button.dataset.bound = "true";
+    button.addEventListener("click", () => {
+      const panelId = button.getAttribute("aria-controls");
+      const panel = panelId ? document.getElementById(panelId) : null;
+      const icon = button.querySelector(".card-detail-icon");
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+
+      button.setAttribute("aria-expanded", String(!isOpen));
+      if (panel) panel.hidden = isOpen;
+      if (icon) icon.textContent = isOpen ? "+" : "−";
+    });
+  });
+</script>

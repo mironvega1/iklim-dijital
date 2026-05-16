@@ -48,6 +48,15 @@ body::after {
   background-size: 5px 5px;
 }
 
+a,
+button {
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
 ::selection {
   color: #050505;
   background: #93c83e;
@@ -83,10 +92,29 @@ body::after {
   transform: translateY(-3px);
 }
 
+.premium-card:focus-within {
+  border-color: rgba(147, 200, 62, 0.5);
+  box-shadow: 0 0 0 2px rgba(147, 200, 62, 0.18), 0 0 44px rgba(147, 200, 62, 0.12);
+}
+
 .text-balance {
   text-wrap: balance;
 }
 
 .mobile-whatsapp {
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

@@ -22,10 +22,13 @@ const styles = {
     "border border-white/15 bg-white/[0.04] text-white hover:border-lime/50 hover:bg-lime/10",
   ghost: "text-white hover:text-lime",
 };
+const isExternal = href.startsWith("http");
 ---
 
 <a
   href={href}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noreferrer" : undefined}
   class:list={[
     "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-ink",
     styles[variant],

@@ -6,26 +6,32 @@ const problems = [
   {
     title: "Reklam bütçesi nereye gidiyor belli değil",
     text: "Harcanan bütçe görünür ama hangi hizmetten, hangi bölgeden ve hangi mesaj kalitesinden sonuç geldiği takip edilmez.",
+    detail: "Bu yüzden önce bütçenin hangi hizmete, hangi ilçeye ve hangi mesaj türüne çalıştığını ayırırız. Böylece para sadece görünürlük için değil, anlaşılabilir talep için kullanılır.",
   },
   {
     title: "Fiyat sorup kaybolan kişilerle zaman kaybediliyor",
     text: "Yanlış mesaj dili ve zayıf yönlendirme, gerçek müşteri yerine sadece fiyat soran kişiler getirebilir.",
+    detail: "Mesaj dili sadece fiyat sormaya değil; arıza tipi, bölge, uygun gün ve servis ihtiyacını netleştirmeye yönelir. Amaç görüşmeyi boşa uzatmadan doğru müşteriyi ayırmaktır.",
   },
   {
     title: "Sezonda yoğunluk var, sezon dışında sessizlik var",
     text: "Klima firmaları çoğu zaman düzenli talep sistemi yerine sezona bağlı çalışır.",
+    detail: "Yoğun dönem gelmeden bakım ve temizlik talebi hazırlanır; düşük sezonda ise arıza, sökme-takma ve bölgesel fırsatlar ayrı düşünülür.",
   },
   {
     title: "Her hizmete aynı reklam yapılınca sonuç düşer",
     text: "Bakım isteyen müşteriyle montaj isteyen müşteri aynı şekilde karar vermez.",
+    detail: "Bakım müşterisi konfor ve hijyen düşünür; arıza müşterisi hız ister; montaj müşterisi güven ve işçilik arar. Her mesaj buna göre ayrılır.",
   },
   {
     title: "WhatsApp mesajı geliyor ama randevuya dönüşmüyor",
     text: "Mesaj akışı, sorular ve yönlendirme doğru kurulmazsa potansiyel müşteri kaybolur.",
+    detail: "Gelen mesajın hızlıca hizmet, bölge, zaman ve iletişim bilgisine bağlanması gerekir. Reklam sadece mesaj getirmez; görüşmeyi kolaylaştırmalıdır.",
   },
   {
     title: "Yanlış bölgeden gelen mesaj boşa zaman kaybettirir",
     text: "Servis verilmeyen ilçelerden gelen talepler reklam bütçesini tüketir ama işe dönüşmez.",
+    detail: "Hizmet bölgesi baştan netleşirse reklam daha doğru kişilere görünür. Bu, ekibin vaktini ve reklam bütçesini korur.",
   },
 ];
 ---
@@ -38,7 +44,7 @@ const problems = [
     />
     <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {problems.map((problem, index) => (
-        <Card title={problem.title} text={problem.text} class="min-h-56">
+        <Card title={problem.title} text={problem.text} detail={problem.detail} actionLabel="Bunu nasıl çözeriz?" class="min-h-56">
           <div class="mb-5 flex items-center gap-3">
             <span class="grid size-11 place-items-center rounded-[8px] border border-lime/30 bg-lime/10 text-sm font-black text-lime">
             0{index + 1}

@@ -6,14 +6,17 @@ const feedbackCards = [
   {
     title: "Gerçek veriyle güncellenecek",
     text: "Onaylı kampanya sonuçları ve müşteri geri bildirimleri geldikçe bu alan güncellenecek.",
+    detail: "Bu bölümde sahte isim, sahte firma veya uydurma başarı hikayesi kullanılmaz. Yayına alınacak her sonuç onaylı olmalıdır.",
   },
   {
     title: "Kampanya sonucu alanı",
     text: "Mesaj akışı, talep kalitesi ve hizmet bölgesi sonuçları yalnızca gerçek verilerle paylaşılacak.",
+    detail: "Paylaşılacak veriler reklam bütçesi, şehir, sezon ve hizmet bölgesi bağlamıyla birlikte verilir.",
   },
   {
     title: "Müşteri yorumu alanı",
     text: "Sahte yorum yerine, izin alınmış gerçek müşteri geri bildirimleri yayınlanacak.",
+    detail: "Güven hissi kısa vadeli görünümle değil, gerçek geri bildirim ve doğru beklentiyle kurulmalıdır.",
   },
 ];
 ---
@@ -26,7 +29,7 @@ const feedbackCards = [
     />
     <div class="mt-12 grid gap-4 md:grid-cols-3">
       {feedbackCards.map((item) => (
-        <Card title={item.title} text={item.text}>
+        <Card title={item.title} text={item.text} detail={item.detail} actionLabel="Güven notu">
           <span class="mb-5 inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-bold uppercase text-lime">
             Temsili alan
           </span>

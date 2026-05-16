@@ -6,18 +6,22 @@ const transparency = [
   {
     title: "Reklam bütçesi ayrı harcanır",
     text: "Reklam bütçesi Meta reklam hesabınızda harcanır, hizmet bedeline dahil değildir.",
+    detail: "Bütçe sizin reklam hesabınızda kalır. Bu sayede harcama, kontrol ve şeffaflık müşteri tarafında net görünür.",
   },
   {
     title: "Satış değil mesaj hedeflenir",
     text: "100 mesaj hedefi satış, randevu veya ödeme yapan müşteri garantisi değildir.",
+    detail: "Satış; fiyat, cevap hızı, servis kalitesi ve müşteriyle görüşme biçimine bağlıdır. Biz reklam tarafında düzenli talep akışına odaklanırız.",
   },
   {
     title: "Performans şehir, sezon ve bütçeye göre değişebilir",
     text: "Sonuçlar şehir, sezon, kreatif, bütçe ve firmanın dönüş hızına göre değişebilir.",
+    detail: "Yaz yoğunluğu, kış talebi, rekabet ve hizmet bölgesi sonucu etkiler. Bu yüzden vaatler şeffaf tutulur.",
   },
   {
     title: "Gelen mesajların kalitesi birlikte değerlendirilir",
     text: "Sadece mesaj sayısı değil, hizmet ihtiyacı, bölge uygunluğu ve dönüş hızı da birlikte takip edilir.",
+    detail: "Bir ayın sonunda sadece sayı değil, hangi tip mesajların daha değerli olduğu konuşulur.",
   },
 ];
 ---
@@ -30,7 +34,7 @@ const transparency = [
     />
     <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {transparency.map((item) => (
-        <Card title={item.title} text={item.text} />
+        <Card title={item.title} text={item.text} detail={item.detail} actionLabel="Şeffaflık detayı" />
       ))}
     </div>
   </div>

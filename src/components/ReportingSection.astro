@@ -2,12 +2,12 @@
 import SectionHeader from "./SectionHeader.astro";
 
 const reportItems = [
-  { title: "Gelen mesaj sayısı", detail: "Haftalık akış takip edilir" },
-  { title: "Ortalama mesaj maliyeti", detail: "Bütçe nereye gidiyor görülür" },
-  { title: "En çok talep gelen hizmet", detail: "Bakım, arıza veya montaj ayrılır" },
-  { title: "En iyi çalışan bölge", detail: "Uygun ilçeler öne çıkarılır" },
-  { title: "WhatsApp talep akışı", detail: "Mesajların kalitesi okunur" },
-  { title: "Bir sonraki öneri", detail: "Gelecek ayın yönü netleşir" },
+  { title: "Gelen mesaj sayısı", detail: "Haftalık akış takip edilir", hint: "Talep düzenli mi?" },
+  { title: "Ortalama mesaj maliyeti", detail: "Bütçe nereye gidiyor görülür", hint: "Maliyet anlamlı mı?" },
+  { title: "En çok talep gelen hizmet", detail: "Bakım, arıza veya montaj ayrılır", hint: "Hangi hizmet önde?" },
+  { title: "En iyi çalışan bölge", detail: "Uygun ilçeler öne çıkarılır", hint: "Doğru yerden mi?" },
+  { title: "WhatsApp talep akışı", detail: "Mesajların kalitesi okunur", hint: "Konuşma net mi?" },
+  { title: "Bir sonraki öneri", detail: "Gelecek ayın yönü netleşir", hint: "Ne değişmeli?" },
 ];
 
 const serviceSignals = ["Bakım", "Arıza", "Montaj"];
@@ -15,6 +15,27 @@ const messageFlow = [
   "Klima bakım fiyatı ve uygun gün soruldu",
   "Arıza için servis bölgesi teyit edildi",
   "Montaj talebi doğru ilçeye yönlendirildi",
+];
+
+const scenarios = [
+  {
+    label: "Bakım",
+    area: "Kadıköy / Ataşehir",
+    intent: "Yaz öncesi bakım ve kötü koku şikayeti",
+    next: "Bakım mesaj dili güçlendirilir, uygun ilçe hedefi korunur.",
+  },
+  {
+    label: "Arıza",
+    area: "Maltepe / Kartal",
+    intent: "Soğutmama, su akıtma ve acil servis ihtiyacı",
+    next: "Cevap hızı ve servis bölgesi ilk mesajda daha net sorulur.",
+  },
+  {
+    label: "Montaj",
+    area: "Ümraniye / Çekmeköy",
+    intent: "Yeni klima montajı ve sökme-takma talebi",
+    next: "İşçilik güveni ve müsait gün konuşması öne çıkarılır.",
+  },
 ];
 ---
 
@@ -25,11 +46,11 @@ const messageFlow = [
       text="Sadece reklam açmakla kalmıyoruz. Hangi hizmetin, hangi bölgenin ve hangi mesaj akışının daha iyi çalıştığını takip ederek reklam bütçesini doğru alana yönlendiriyoruz."
     />
 
-    <div class="glass-panel relative mt-12 overflow-hidden rounded-[8px] p-5 md:p-8">
+    <div class="glass-panel relative mt-12 overflow-hidden rounded-[8px] p-5 md:p-8" data-simulation>
       <div class="absolute right-0 top-0 h-72 w-72 translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/20 blur-3xl"></div>
       <div class="relative grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <div class="mb-6 flex items-center justify-between gap-4">
+          <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
             <div>
               <p class="text-xs font-bold uppercase text-textMuted">Temsili reklam takip alanı</p>
               <h3 class="mt-1 text-2xl font-black text-white">Klima firması için sade görünüm</h3>
@@ -37,27 +58,66 @@ const messageFlow = [
             <span class="rounded-full border border-lime/30 bg-lime/10 px-3 py-1 text-xs font-bold text-lime">Gerçek veri değildir</span>
           </div>
 
+          <div class="mb-5 grid gap-2 sm:grid-cols-3">
+            {scenarios.map((scenario, index) => (
+              <button
+                type="button"
+                class:list={[
+                  "simulation-tab min-h-12 rounded-[8px] border px-4 py-3 text-left text-sm font-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-lime",
+                  index === 0 ? "is-active border-lime/40 bg-lime/15 text-white" : "border-white/10 bg-white/[0.035] text-textMuted hover:border-lime/30 hover:text-white",
+                ]}
+                data-sim-tab
+                data-service={scenario.label}
+                data-area={scenario.area}
+                data-intent={scenario.intent}
+                data-next={scenario.next}
+                aria-pressed={index === 0 ? "true" : "false"}
+              >
+                {scenario.label}
+              </button>
+            ))}
+          </div>
+
+          <div class="mb-5 rounded-[8px] border border-lime/20 bg-lime/[0.07] p-4">
+            <p class="text-xs font-black uppercase text-lime">Seçili hizmet açısı</p>
+            <div class="mt-3 grid gap-3 md:grid-cols-3">
+              <div>
+                <p class="text-[11px] font-bold uppercase text-textMuted">Hizmet</p>
+                <p class="mt-1 text-sm font-black text-white" data-sim-service>{scenarios[0].label}</p>
+              </div>
+              <div>
+                <p class="text-[11px] font-bold uppercase text-textMuted">Bölge</p>
+                <p class="mt-1 text-sm font-black text-white" data-sim-area>{scenarios[0].area}</p>
+              </div>
+              <div>
+                <p class="text-[11px] font-bold uppercase text-textMuted">Talep niyeti</p>
+                <p class="mt-1 text-sm font-black text-white" data-sim-intent>{scenarios[0].intent}</p>
+              </div>
+            </div>
+          </div>
+
           <div class="grid gap-3 sm:grid-cols-2">
             {reportItems.map((item, index) => (
-              <div class="rounded-[8px] border border-white/10 bg-[#151515] p-4">
+              <button type="button" class="group rounded-[8px] border border-white/10 bg-[#151515] p-4 text-left transition hover:border-lime/35 hover:bg-lime/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-lime">
                 <div class="mb-4 flex items-center justify-between gap-3">
                   <p class="text-sm font-extrabold text-white">{item.title}</p>
                   <span class="text-xs font-black text-lime">0{index + 1}</span>
                 </div>
                 <p class="text-xs leading-6 text-textMuted">{item.detail}</p>
+                <p class="mt-2 text-[11px] font-bold uppercase text-white/40 group-hover:text-lime">{item.hint}</p>
                 <div class="mt-4 h-2 rounded-full bg-white/10">
                   <div class="h-2 rounded-full bg-lime" style={`width: ${44 + index * 8}%`}></div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
 
           <div class="mt-5 grid gap-3 sm:grid-cols-3">
             {serviceSignals.map((service) => (
-              <div class="rounded-[8px] border border-lime/20 bg-lime/10 p-4">
+              <button type="button" class="rounded-[8px] border border-lime/20 bg-lime/10 p-4 text-left transition hover:border-lime/50 hover:bg-lime/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-lime">
                 <p class="text-sm font-black text-white">{service}</p>
                 <p class="mt-2 text-xs leading-5 text-textMuted">Talep açısı ayrı izlenir</p>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -76,9 +136,20 @@ const messageFlow = [
           </div>
           <div class="mt-6 rounded-[8px] border border-white/10 bg-[#151515] p-4">
             <p class="text-xs font-bold uppercase text-lime">Bir sonraki adım</p>
-            <p class="mt-2 text-sm leading-6 text-textMuted">
-              Daha çok talep gelen hizmet ve doğru bölge birlikte değerlendirilir.
+            <p class="mt-2 text-sm leading-6 text-textMuted" data-sim-next>
+              {scenarios[0].next}
             </p>
+          </div>
+          <div class="mt-4 grid grid-cols-3 gap-2">
+            <button type="button" class="rounded-[8px] border border-white/10 bg-white/[0.035] p-3 text-left text-[11px] font-bold uppercase text-textMuted transition hover:border-lime/30 hover:text-white">
+              Bölge uygun mu?
+            </button>
+            <button type="button" class="rounded-[8px] border border-white/10 bg-white/[0.035] p-3 text-left text-[11px] font-bold uppercase text-textMuted transition hover:border-lime/30 hover:text-white">
+              Hizmet net mi?
+            </button>
+            <button type="button" class="rounded-[8px] border border-white/10 bg-white/[0.035] p-3 text-left text-[11px] font-bold uppercase text-textMuted transition hover:border-lime/30 hover:text-white">
+              Cevap hızlı mı?
+            </button>
           </div>
         </aside>
       </div>
@@ -88,4 +159,38 @@ const messageFlow = [
       </p>
     </div>
   </div>
+
+  <script>
+    document.querySelectorAll("[data-simulation]").forEach((panel) => {
+      if (!(panel instanceof HTMLElement) || panel.dataset.bound === "true") return;
+      panel.dataset.bound = "true";
+
+      const service = panel.querySelector("[data-sim-service]");
+      const area = panel.querySelector("[data-sim-area]");
+      const intent = panel.querySelector("[data-sim-intent]");
+      const next = panel.querySelector("[data-sim-next]");
+      const tabs = Array.from(panel.querySelectorAll("[data-sim-tab]"));
+
+      tabs.forEach((tab) => {
+        if (!(tab instanceof HTMLButtonElement)) return;
+        tab.addEventListener("click", () => {
+          tabs.forEach((item) => {
+            if (!(item instanceof HTMLButtonElement)) return;
+            item.setAttribute("aria-pressed", "false");
+            item.classList.remove("is-active", "border-lime/40", "bg-lime/15", "text-white");
+            item.classList.add("border-white/10", "bg-white/[0.035]", "text-textMuted");
+          });
+
+          tab.setAttribute("aria-pressed", "true");
+          tab.classList.add("is-active", "border-lime/40", "bg-lime/15", "text-white");
+          tab.classList.remove("border-white/10", "bg-white/[0.035]", "text-textMuted");
+
+          if (service) service.textContent = tab.dataset.service || "";
+          if (area) area.textContent = tab.dataset.area || "";
+          if (intent) intent.textContent = tab.dataset.intent || "";
+          if (next) next.textContent = tab.dataset.next || "";
+        });
+      });
+    });
+  </script>
 </section>
