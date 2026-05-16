@@ -9,10 +9,10 @@ const metrics = [
 ];
 
 const serviceTags = ["Bakım", "Temizlik", "Arıza", "Montaj"];
-const leadFlow = [
-  { title: "Klima bakım talebi", area: "Bodrum", status: "Değerlendiriliyor" },
-  { title: "Klima arıza talebi", area: "Milas", status: "Randevuya uygun" },
-  { title: "Klima montaj talebi", area: "Menteşe", status: "Yeni talep" },
+const flowPlan = [
+  { title: "Hizmet türü ayrılır", text: "Bakım, arıza, temizlik ve montaj aynı mesajla yönetilmez." },
+  { title: "Hizmet bölgesi netleşir", text: "Reklam, çalışmak istediğiniz ilçelere göre düşünülür." },
+  { title: "WhatsApp konuşması sadeleşir", text: "Gelen mesaj hizmet, bölge ve uygun zaman bilgisine yaklaşır." },
 ];
 ---
 
@@ -70,18 +70,18 @@ const leadFlow = [
 
         <div class="rounded-[8px] border border-white/10 bg-[#0d0d0d] p-4">
           <div class="mb-4 flex items-center justify-between gap-3">
-            <p class="text-xs font-black uppercase text-lime">Temsili talep akışı</p>
-            <span class="rounded-full border border-white/10 px-3 py-1 text-[11px] font-bold text-textMuted">Canlı mockup</span>
+            <p class="text-xs font-black uppercase text-lime">Talep akışı planı</p>
+            <span class="rounded-full border border-white/10 px-3 py-1 text-[11px] font-bold text-textMuted">WhatsApp odaklı</span>
           </div>
           <div class="space-y-3">
-            {leadFlow.map((lead, index) => (
+            {flowPlan.map((item, index) => (
               <div class:list={["lead-flow-card rounded-[8px] border border-white/10 bg-[#151515] p-3 min-[380px]:p-4", index === 1 && "sm:ml-4 border-lime/25 bg-lime/[0.08]", index === 2 && "sm:ml-8"]}>
-                <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                <div class="flex items-start gap-3">
+                  <span class="mt-1 grid size-7 shrink-0 place-items-center rounded-full bg-lime text-xs font-black text-ink">{index + 1}</span>
                   <div>
-                    <p class="text-sm font-black text-white">{lead.title}</p>
-                    <p class="mt-2 text-xs font-semibold text-textMuted">Bölge: {lead.area} · Kanal: WhatsApp</p>
+                    <p class="text-sm font-black text-white">{item.title}</p>
+                    <p class="mt-2 text-xs font-semibold leading-5 text-textMuted">{item.text}</p>
                   </div>
-                  <span class="w-fit shrink-0 rounded-full border border-lime/30 bg-lime/10 px-3 py-1 text-[11px] font-bold text-lime">{lead.status}</span>
                 </div>
               </div>
             ))}
@@ -99,7 +99,7 @@ const leadFlow = [
         </div>
 
         <p class="mt-5 text-xs leading-6 text-textMuted">
-          Temsili talep akışıdır. Gerçek sonuçlar bölge, bütçe ve sezona göre değişebilir.
+          Bu alan reklam sürecinde planlanan başlıkları gösterir. Gerçek sonuçlar bölge, bütçe ve sezona göre değişebilir.
         </p>
       </div>
     </div>
