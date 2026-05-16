@@ -1,0 +1,48 @@
+---
+const scattered = [
+  "Tek reklamla her hizmet anlatılır",
+  "Bölge seçimi net değildir",
+  "WhatsApp mesaj akışı planlanmaz",
+  "Gelen mesajların kalitesi ölçülmez",
+  "Bütçe nereye gittiği anlaşılmadan harcanır",
+];
+
+const iklim = [
+  "Hizmet bazlı reklam açıları kurulur",
+  "Hizmet verilen ilçeler netleştirilir",
+  "WhatsApp talep akışı planlanır",
+  "Mesaj maliyeti ve talep kalitesi takip edilir",
+  "Bütçe çalışan reklam ve bölgelere yönlendirilir",
+];
+---
+
+<section class="py-20 md:py-28">
+  <div class="section-shell">
+    <h2 class="text-balance max-w-3xl text-3xl font-black leading-tight text-white md:text-5xl">
+      Dağınık reklamdan ölçülebilir müşteri akışına
+    </h2>
+
+    <div class="mt-12 grid gap-5 lg:grid-cols-2">
+      <article class="rounded-[8px] border border-white/10 bg-[#101010] p-6 md:p-8">
+        <h3 class="text-2xl font-black text-white">Dağınık reklam sistemi</h3>
+        <div class="mt-6 space-y-3">
+          {scattered.map((item) => (
+            <p class="rounded-[8px] border border-white/10 bg-white/[0.03] p-4 text-sm font-semibold leading-6 text-textMuted">{item}</p>
+          ))}
+        </div>
+      </article>
+
+      <article class="relative overflow-hidden rounded-[8px] border border-lime/25 bg-[#101010] p-6 shadow-glow md:p-8">
+        <div class="absolute right-0 top-0 h-64 w-64 translate-x-1/3 -translate-y-1/3 rounded-full bg-lime/20 blur-3xl"></div>
+        <div class="relative">
+          <h3 class="text-2xl font-black text-white">İklimDijital sistemi</h3>
+          <div class="mt-6 space-y-3">
+            {iklim.map((item) => (
+              <p class="rounded-[8px] border border-lime/20 bg-lime/[0.08] p-4 text-sm font-semibold leading-6 text-white/90">{item}</p>
+            ))}
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

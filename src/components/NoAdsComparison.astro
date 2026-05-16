@@ -1,0 +1,74 @@
+---
+const noAds = [
+  "Talep çoğunlukla tavsiye ve sezona bağlıdır.",
+  "Hangi hizmetten ne kadar talep kaçtığı ölçülmez.",
+  "Boş günlerde yeni müşteri akışı zayıflar.",
+  "Rakipler reklamda görünürken firma pasif kalır.",
+  "WhatsApp'a düzenli talep akışı oluşmaz.",
+];
+
+const withSystem = [
+  "Hizmet bölgesinde düzenli görünürlük kazanır.",
+  "Bakım, arıza ve montaj talepleri ayrı takip edilir.",
+  "WhatsApp üzerinden ölçülebilir mesaj akışı oluşur.",
+  "Hangi bölgenin ve hizmetin daha iyi çalıştığı görülür.",
+  "Bütçe, çalışan reklamlara yönlendirilir.",
+];
+---
+
+<section class="py-20 md:py-28">
+  <div class="section-shell">
+    <div class="mb-12 max-w-3xl">
+      <h2 class="text-balance text-3xl font-black leading-tight text-white md:text-5xl">
+        Reklam vermeyen firma neyi kaçırıyor?
+      </h2>
+      <p class="mt-5 text-base leading-8 text-textMuted md:text-lg">
+        Her gün reklam bütçesi ayırmadığınızda, sadece geleneksel müşteri akışına bağlı kalırsınız. Düzenli reklam sistemi ise hizmet bölgenizde talep oluşturmak için çalışır.
+      </p>
+    </div>
+
+    <div class="grid gap-5 lg:grid-cols-2">
+      <article class="rounded-[8px] border border-white/10 bg-[#101010] p-6 md:p-8">
+        <h3 class="text-2xl font-black text-white">Reklam vermeyen firma</h3>
+        <div class="mt-6 space-y-3">
+          {noAds.map((item) => (
+            <div class="rounded-[8px] border border-white/10 bg-white/[0.03] p-4 text-sm font-semibold leading-6 text-textMuted">
+              {item}
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article class="relative overflow-hidden rounded-[8px] border border-lime/25 bg-lime/[0.08] p-6 shadow-glow md:p-8">
+        <div class="absolute right-0 top-0 h-56 w-56 translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/20 blur-3xl"></div>
+        <div class="relative">
+          <h3 class="text-2xl font-black text-white">Reklam sistemi kuran firma</h3>
+          <div class="mt-6 space-y-3">
+            {withSystem.map((item) => (
+              <div class="rounded-[8px] border border-lime/20 bg-[#101010] p-4 text-sm font-semibold leading-6 text-white/85">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="mt-5 rounded-[8px] border border-white/10 bg-[#101010] p-5 md:p-6">
+      <div class="mb-4 flex flex-wrap items-center gap-3">
+        <span class="rounded-full border border-lime/30 bg-lime/10 px-3 py-1 text-xs font-black uppercase text-lime">Örnek senaryo</span>
+        <span class="text-xs font-semibold text-textMuted">Garanti değildir, planlama fikri verir.</span>
+      </div>
+      <div class="grid gap-3 md:grid-cols-3 lg:grid-cols-6">
+        {["Günlük 500 TL reklam bütçesi", "Aylık 15.000 TL reklam bütçesi", "50 TL hedef mesaj maliyeti", "Tahmini 300 mesaj potansiyeli", "Ortalama 1.500 TL servis bedeli", "Yaklaşık 10 iş gerekir"].map((item) => (
+          <div class="rounded-[8px] border border-white/10 bg-white/[0.035] p-4 text-sm font-bold leading-6 text-white">
+            {item}
+          </div>
+        ))}
+      </div>
+      <p class="mt-4 text-xs leading-6 text-textMuted">
+        Bu örnek garanti değildir. Reklam performansı bölge, sezon, kreatif ve dönüş hızına göre değişebilir.
+      </p>
+    </div>
+  </div>
+</section>
