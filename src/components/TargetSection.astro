@@ -1,0 +1,33 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import Card from "./Card.astro";
+
+const transparency = [
+  {
+    title: "Reklam bütçesi ayrı harcanır",
+    text: "Reklam bütçesi Meta reklam hesabınızda harcanır, hizmet bedeline dahil değildir.",
+  },
+  {
+    title: "Satış değil mesaj hedeflenir",
+    text: "100 mesaj hedefi satış, randevu veya ödeme yapan müşteri garantisi değildir.",
+  },
+  {
+    title: "Performans değişebilir",
+    text: "Sonuçlar şehir, sezon, kreatif, bütçe ve firmanın dönüş hızına göre değişebilir.",
+  },
+];
+---
+
+<section id="100-mesaj" class="py-20 md:py-28">
+  <div class="section-shell">
+    <SectionHeader
+      title="100 potansiyel müşteri mesajı hedefiyle çalışıyoruz"
+      text="Aylık çalışmada hedefimiz, klima firmanız için minimum 100 potansiyel müşteri mesajı oluşturmaktır. Bu hedef yalnızca reklamlar üzerinden gelen mesajlar için geçerlidir. Satışa dönüşme oranı; fiyatlandırma, dönüş hızı, hizmet bölgesi ve müşteriyle iletişim kalitesine göre değişebilir."
+    />
+    <div class="mt-12 grid gap-4 md:grid-cols-3">
+      {transparency.map((item) => (
+        <Card title={item.title} text={item.text} />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import Card from "./Card.astro";
+
+const solutions = [
+  {
+    title: "Hizmet bazlı reklam açıları",
+    text: "Bakım, temizlik, arıza ve montaj için ayrı mesaj dili ve kreatif açısı oluşturulur.",
+  },
+  {
+    title: "WhatsApp mesaj yönlendirme",
+    text: "Reklamlar, müşterinin hızlıca bilgi alabileceği WhatsApp mesaj akışına yönlendirilir.",
+  },
+  {
+    title: "Veriye göre optimizasyon",
+    text: "Mesaj maliyeti, talep kalitesi ve hizmet bölgesi verilerine göre reklamlar optimize edilir.",
+  },
+];
+---
+
+<section class="py-20 md:py-28">
+  <div class="section-shell">
+    <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+      <SectionHeader
+        align="left"
+        eyebrow="Çözüm"
+        title="Reklam değil, klima firmalarına özel müşteri kazanım sistemi"
+        text="Bakım, temizlik, montaj ve arıza hizmetleri aynı reklam yapısıyla yönetilmez. Her hizmetin müşterisi, karar süreci ve mesaj dili farklıdır. İklimDijital, reklamları hizmet türüne, lokasyona ve müşteri niyetine göre planlar."
+      />
+      <div class="rounded-[8px] border border-lime/20 bg-lime/10 p-6">
+        <p class="text-lg font-extrabold text-white">Ana vaat</p>
+        <p class="mt-3 text-2xl font-black leading-tight text-lime md:text-3xl">
+          Klima firmaları için düzenli potansiyel müşteri akışı kuruyoruz.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-12 grid gap-4 md:grid-cols-3">
+      {solutions.map((solution) => (
+        <Card title={solution.title} text={solution.text} />
+      ))}
+    </div>
+  </div>
+</section>

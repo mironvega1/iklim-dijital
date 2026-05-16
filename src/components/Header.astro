@@ -1,0 +1,35 @@
+---
+import CTAButton from "./CTAButton.astro";
+import { siteConfig } from "../config";
+
+const navItems = [
+  { label: "Sistem", href: "#sistem" },
+  { label: "Paketler", href: "#paketler" },
+  { label: "100 Mesaj Hedefi", href: "#100-mesaj" },
+  { label: "SSS", href: "#sss" },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-ink/[0.72] backdrop-blur-2xl">
+  <div class="section-shell flex h-20 items-center justify-between gap-4">
+    <a href="#" class="flex items-center gap-3" aria-label={`${siteConfig.brandName} ana sayfa`}>
+      <span class="grid size-10 place-items-center rounded-[8px] border border-white/10 bg-white/[0.04] text-sm font-black text-white shadow-glow">
+        İD
+      </span>
+      <span class="text-lg font-black">
+        <span class="text-white">İklim</span><span class="text-lime">Dijital</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Ana menü">
+      {navItems.map((item) => (
+        <a href={item.href} class="text-sm font-semibold text-textMuted transition hover:text-white">
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <CTAButton label="WhatsApp" class="hidden md:inline-flex" />
+    <CTAButton label="WhatsApp" class="px-4 md:hidden" />
+  </div>
+</header>

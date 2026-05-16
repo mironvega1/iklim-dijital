@@ -1,0 +1,34 @@
+---
+import { siteConfig } from "../config";
+
+const links = [
+  { label: "Sistem", href: "#sistem" },
+  { label: "Paketler", href: "#paketler" },
+  { label: "100 Mesaj Hedefi", href: "#100-mesaj" },
+  { label: "SSS", href: "#sss" },
+  { label: "İletişim", href: siteConfig.whatsappUrl },
+];
+---
+
+<footer class="border-t border-white/10 py-10">
+  <div class="section-shell">
+    <div class="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-start">
+      <div>
+        <a href="#" class="text-xl font-black">
+          <span class="text-white">İklim</span><span class="text-lime">Dijital</span>
+        </a>
+        <p class="mt-4 max-w-md text-sm leading-7 text-textMuted">
+          Klima firmalarına özel Meta Ads odaklı müşteri kazanım sistemi.
+        </p>
+      </div>
+      <nav class="flex flex-wrap gap-4 md:justify-end" aria-label="Footer menü">
+        {links.map((link) => (
+          <a href={link.href} class="text-sm font-semibold text-textMuted transition hover:text-white">{link.label}</a>
+        ))}
+      </nav>
+    </div>
+    <p class="mt-8 border-t border-white/10 pt-6 text-xs leading-6 text-textMuted">
+      Bu sitedeki mesaj hedefleri satış garantisi değildir. Reklam sonuçları bütçe, şehir, sezon ve müşteri dönüş hızına göre değişebilir.
+    </p>
+  </div>
+</footer>

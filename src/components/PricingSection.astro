@@ -1,0 +1,55 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import CTAButton from "./CTAButton.astro";
+
+const features = [
+  "Meta Ads reklam yönetimi",
+  "Klima bakım, temizlik, arıza ve montaj kampanyaları",
+  "WhatsApp mesaj yönlendirmesi",
+  "Performans takibi ve optimizasyon",
+  "Aylık 9 sosyal medya postu",
+  "Aylık performans raporu",
+  "100 potansiyel müşteri mesajı hedefi",
+];
+---
+
+<section id="paketler" class="py-20 md:py-28">
+  <div class="section-shell">
+    <SectionHeader
+      title="Klima Firmalarına Özel Aylık Reklam Sistemi"
+      text="İklimDijital, klima firmaları için Meta Ads reklam yönetimi, WhatsApp mesaj yönlendirme ve sosyal medya içerik desteğini tek sistemde toplar."
+    />
+
+    <div class="glass-panel relative mx-auto mt-12 max-w-4xl overflow-hidden rounded-[8px] p-6 md:p-10">
+      <div class="absolute right-0 top-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/20 blur-3xl"></div>
+      <div class="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <span class="inline-flex rounded-full border border-lime/30 bg-lime/10 px-4 py-2 text-xs font-extrabold uppercase text-lime">
+            En Çok Tercih Edilen
+          </span>
+          <h2 class="mt-6 text-3xl font-black text-white md:text-5xl">Aylık Reklam Paketi</h2>
+          <p class="mt-5 text-5xl font-black text-lime md:text-6xl">15.000 TL</p>
+          <p class="mt-2 text-lg font-bold text-white">/ Ay</p>
+          <p class="mt-6 rounded-[8px] border border-white/10 bg-white/[0.04] p-4 text-sm leading-7 text-textMuted">
+            Reklam bütçesi dahil değildir. Minimum önerilen reklam bütçesi günlük 500 TL'dir.
+          </p>
+        </div>
+
+        <div>
+          <ul class="grid gap-3">
+            {features.map((feature) => (
+              <li class="flex items-start gap-3 rounded-[8px] border border-white/10 bg-[#151515] p-4 text-sm font-semibold text-white/90">
+                <span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-lime text-xs font-black text-ink">✓</span>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <CTAButton label="WhatsApp'tan Bilgi Al" class="mt-7 w-full" />
+          <p class="mt-5 text-xs leading-6 text-textMuted">
+            100 potansiyel müşteri mesajı hedefi yalnızca reklamlar üzerinden gelen mesajlar içindir. Satış, randevu veya ödeme yapan müşteri garantisi değildir.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

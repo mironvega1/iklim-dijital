@@ -1,0 +1,17 @@
+---
+interface Props {
+  title?: string;
+  text?: string;
+  eyebrow?: string;
+  class?: string;
+}
+
+const { title, text, eyebrow, class: className = "" } = Astro.props;
+---
+
+<article class:list={["premium-card rounded-[8px] p-6", className]}>
+  {eyebrow && <p class="mb-4 text-xs font-bold uppercase text-lime">{eyebrow}</p>}
+  {title && <h3 class="text-xl font-extrabold text-white">{title}</h3>}
+  {text && <p class="mt-3 text-sm leading-7 text-textMuted">{text}</p>}
+  <slot />
+</article>

@@ -1,0 +1,30 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+
+const steps = [
+  "Firmanızı ve hizmet bölgenizi analiz ederiz.",
+  "Reklam hesabı, WhatsApp ve kampanya yapısını kurarız.",
+  "Bakım, temizlik, montaj ve arıza için ayrı reklam açıları test ederiz.",
+  "Gelen mesajları, maliyetleri ve talep kalitesini takip ederiz.",
+  "Çalışan reklamları güçlendirip bütçeyi doğru alana yönlendiririz.",
+];
+---
+
+<section class="py-20 md:py-28">
+  <div class="section-shell">
+    <SectionHeader title="Süreç nasıl ilerliyor?" />
+    <div class="mt-12 grid gap-4 lg:grid-cols-5">
+      {steps.map((step, index) => (
+        <article class="premium-card relative rounded-[8px] p-6">
+          <span class="mb-8 inline-grid size-12 place-items-center rounded-full bg-lime text-sm font-black text-ink">
+            {index + 1}
+          </span>
+          <h3 class="text-lg font-extrabold leading-7 text-white">{step}</h3>
+          {index < steps.length - 1 && (
+            <span class="absolute -right-2 top-11 hidden h-px w-4 bg-lime/50 lg:block" aria-hidden="true"></span>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

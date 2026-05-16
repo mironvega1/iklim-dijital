@@ -1,0 +1,84 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+
+const faqs = [
+  {
+    question: "Reklam bütçesi fiyata dahil mi?",
+    answer: "Hayır. Reklam bütçesi Meta reklam hesabınızda ayrıca harcanır.",
+  },
+  {
+    question: "Minimum reklam bütçesi ne kadar?",
+    answer: "Minimum günlük 500 TL reklam bütçesi öneriyoruz.",
+  },
+  {
+    question: "Sadece klima firmalarıyla mı çalışıyorsunuz?",
+    answer: "Evet. İklimDijital yalnızca klima ve iklimlendirme hizmeti sunan firmalara odaklanır.",
+  },
+  {
+    question: "100 mesaj satış garantisi mi?",
+    answer:
+      "Hayır. 100 mesaj hedefi yalnızca potansiyel müşteri mesajı içindir; satış, randevu veya ödeme yapan müşteri garantisi değildir.",
+  },
+  {
+    question: "Çalışmaya nasıl başlanıyor?",
+    answer:
+      "Önce firmanızın hizmet bölgesi, sunduğu klima hizmetleri ve mevcut reklam durumu incelenir. Ardından Meta reklam hesabı, WhatsApp mesaj yönlendirmesi ve kampanya yapısı kurularak aylık reklam yönetimi başlatılır.",
+  },
+  {
+    question: "Google Ads yapıyor musunuz?",
+    answer:
+      "İlk odak Meta Ads ve WhatsApp mesaj sistemidir. Google Ads, aktif arama yapan müşterileri yakalamak için ikinci aşamada eklenebilir.",
+  },
+  {
+    question: "Sosyal medya yönetimi var mı?",
+    answer:
+      "Aylık pakette 9 adet sosyal medya postu bulunur. Günlük sosyal medya yönetimi, yorum yanıtlama veya profesyonel çekim ayrıca fiyatlandırılır.",
+  },
+];
+---
+
+<section id="sss" class="py-20 md:py-28">
+  <div class="section-shell max-w-4xl">
+    <SectionHeader title="Sık sorulan sorular" />
+    <div class="mt-12 divide-y divide-white/10 rounded-[8px] border border-white/10 bg-[#101010]">
+      {faqs.map((faq, index) => (
+        <div class="faq-item">
+          <button
+            class="flex w-full items-center justify-between gap-5 px-5 py-5 text-left text-base font-extrabold text-white transition hover:text-lime md:px-7"
+            aria-expanded="false"
+            aria-controls={`faq-panel-${index}`}
+            id={`faq-button-${index}`}
+            type="button"
+          >
+            <span>{faq.question}</span>
+            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full border border-white/10 text-lime transition">+</span>
+          </button>
+          <div
+            id={`faq-panel-${index}`}
+            role="region"
+            aria-labelledby={`faq-button-${index}`}
+            hidden
+            class="px-5 pb-6 text-sm leading-7 text-textMuted md:px-7"
+          >
+            {faq.answer}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll(".faq-item button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const panelId = button.getAttribute("aria-controls");
+        const panel = panelId ? document.getElementById(panelId) : null;
+        const icon = button.querySelector(".faq-icon");
+        const isOpen = button.getAttribute("aria-expanded") === "true";
+
+        button.setAttribute("aria-expanded", String(!isOpen));
+        if (panel) panel.hidden = isOpen;
+        if (icon) icon.textContent = isOpen ? "+" : "−";
+      });
+    });
+  </script>
+</section>

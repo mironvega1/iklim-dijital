@@ -1,0 +1,39 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import Card from "./Card.astro";
+
+const services = [
+  {
+    title: "Klima Bakım",
+    text: "Kötü koku, performans düşüşü ve yaz öncesi bakım ihtiyacı olan kişilere ulaşılır.",
+  },
+  {
+    title: "Klima Temizlik",
+    text: "Filtre, iç ünite ve genel temizlik ihtiyacı olan müşteriler hedeflenir.",
+  },
+  {
+    title: "Klima Arıza",
+    text: "Soğutmama, su akıtma, ses yapma gibi sorun yaşayan kişilerden mesaj alınır.",
+  },
+  {
+    title: "Klima Montaj / Sökme-Takma",
+    text: "Yeni klima almış veya yer değişimi hizmeti arayan kişilere ulaşılır.",
+  },
+];
+---
+
+<section class="py-20 md:py-28">
+  <div class="section-shell">
+    <SectionHeader
+      title="Hangi hizmetler için müşteri akışı kuruyoruz?"
+      text="Klima sektöründe her hizmetin müşterisi farklıdır. Bu yüzden reklam açılarını tek bir genel kampanya gibi değil, hizmet niyetine göre planlarız."
+    />
+    <div class="mt-12 grid gap-4 md:grid-cols-2">
+      {services.map((service) => (
+        <Card title={service.title} text={service.text} class="min-h-48">
+          <div class="mb-5 h-1.5 w-20 rounded-full bg-lime"></div>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

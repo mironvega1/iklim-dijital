@@ -1,0 +1,33 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import Card from "./Card.astro";
+
+const advantages = [
+  {
+    title: "Sektör dilini biliyoruz",
+    text: "Klima müşterisinin aciliyeti, fiyat hassasiyeti ve hizmet beklentisi farklıdır.",
+  },
+  {
+    title: "Hizmet türüne göre reklam açısı kuruyoruz",
+    text: "Bakım, arıza, temizlik ve montaj için aynı metinle reklam çıkmayız.",
+  },
+  {
+    title: "WhatsApp mesaj akışını randevuya uygun hale getiriyoruz",
+    text: "Mesajın hızlıca hizmet bölgesi, ihtiyaç ve uygun zaman konuşmasına dönmesini hedefleriz.",
+  },
+];
+---
+
+<section class="py-20 md:py-28">
+  <div class="section-shell">
+    <SectionHeader
+      title="Her sektöre değil, sadece klima firmalarına odaklanıyoruz"
+      text="Klima sektöründe müşteri davranışı farklıdır. Bakım isteyen müşteriyle montaj isteyen müşteri aynı şekilde karar vermez. Bu yüzden reklam sistemi de sektöre özel kurulmalıdır."
+    />
+    <div class="mt-12 grid gap-4 md:grid-cols-3">
+      {advantages.map((item) => (
+        <Card title={item.title} text={item.text} />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#050505"/>
+  <circle cx="910" cy="120" r="260" fill="#93C83E" opacity="0.14"/>
+  <circle cx="180" cy="500" r="220" fill="#93C83E" opacity="0.08"/>
+  <path d="M0 130H1200M0 260H1200M0 390H1200M0 520H1200M150 0V630M300 0V630M450 0V630M600 0V630M750 0V630M900 0V630M1050 0V630" stroke="white" stroke-opacity="0.05"/>
+  <rect x="80" y="72" width="1040" height="486" rx="18" fill="#101010" stroke="white" stroke-opacity="0.12"/>
+  <text x="120" y="160" fill="#FFFFFF" font-family="Montserrat, Arial, sans-serif" font-size="48" font-weight="900">İklim<tspan fill="#93C83E">Dijital</tspan></text>
+  <text x="120" y="280" fill="#FFFFFF" font-family="Montserrat, Arial, sans-serif" font-size="72" font-weight="900">Klima Firmalarına Özel</text>
+  <text x="120" y="370" fill="#93C83E" font-family="Montserrat, Arial, sans-serif" font-size="72" font-weight="900">Reklam Sistemi</text>
+  <text x="120" y="455" fill="#B8B8B8" font-family="Montserrat, Arial, sans-serif" font-size="30" font-weight="600">Meta Ads odaklı potansiyel müşteri mesajı sistemi</text>
+  <rect x="120" y="500" width="270" height="54" rx="27" fill="#93C83E"/>
+  <text x="150" y="536" fill="#050505" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="900">WhatsApp odaklı akış</text>
+</svg>

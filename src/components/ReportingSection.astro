@@ -1,0 +1,51 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+
+const reportItems = [
+  "Toplam gelen mesaj",
+  "Ortalama mesaj maliyeti",
+  "En iyi çalışan hizmet kampanyası",
+  "En iyi çalışan bölge",
+  "Gelen talep kalitesi",
+  "Bir sonraki ay optimizasyon planı",
+];
+---
+
+<section class="py-20 md:py-28">
+  <div class="section-shell">
+    <div class="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+      <SectionHeader
+        align="left"
+        title="Aylık süreçte hangi verileri takip ediyoruz?"
+        text="Reklam yönetimini yalnızca reklam açmak olarak görmüyoruz. Mesaj maliyeti, gelen talep kalitesi ve hizmet bölgelerine göre performansı düzenli takip ediyoruz."
+      />
+
+      <div class="glass-panel rounded-[8px] p-5 md:p-7">
+        <div class="mb-6 flex items-center justify-between gap-4">
+          <div>
+            <p class="text-xs font-bold uppercase text-textMuted">Aylık Performans</p>
+            <h3 class="mt-1 text-2xl font-black text-white">Raporlama Paneli</h3>
+          </div>
+          <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-lime">Temsili</span>
+        </div>
+
+        <div class="grid gap-3 sm:grid-cols-2">
+          {reportItems.map((item, index) => (
+            <div class="rounded-[8px] border border-white/10 bg-[#151515] p-4">
+              <div class="mb-4 flex items-center justify-between gap-3">
+                <p class="text-sm font-bold text-white">{item}</p>
+                <span class="text-xs font-black text-lime">0{index + 1}</span>
+              </div>
+              <div class="h-2 rounded-full bg-white/10">
+                <div class="h-2 rounded-full bg-lime" style={`width: ${46 + index * 7}%`}></div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p class="mt-5 text-xs leading-6 text-textMuted">
+          Raporlama alanı temsili olarak gösterilir. Gerçek sonuçlar şehir, sezon, bütçe, kreatif ve müşteri dönüş hızına göre değişebilir.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

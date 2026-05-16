@@ -1,0 +1,41 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import Card from "./Card.astro";
+
+const problems = [
+  {
+    title: "Sezonda yoğunluk, sezon dışında sessizlik",
+    text: "Talep dalgalandığında reklam planı yoksa takvim bir dönem dolar, diğer dönem tamamen boş kalabilir.",
+  },
+  {
+    title: "Fiyat sorup kaybolan müşteriler",
+    text: "Yanlış hedefleme, gerçek hizmet ihtiyacı olmayan ve sadece fiyat kıyaslayan mesajları artırabilir.",
+  },
+  {
+    title: "Reklama para harcayıp sonuç alamamak",
+    text: "Genel reklam kampanyaları, bakım, arıza, temizlik ve montaj niyetini aynı sepete atarak bütçeyi tüketebilir.",
+  },
+  {
+    title: "Gelen mesajları randevuya çevirememek",
+    text: "Mesaj akışı doğru kurulmadığında müşteri hızlı bilgi alamaz ve başka firmaya geçebilir.",
+  },
+];
+---
+
+<section id="sistem" class="py-20 md:py-28">
+  <div class="section-shell">
+    <SectionHeader
+      title="Klima firmalarının en büyük problemi düzensiz müşteri akışı"
+      text="Sezonda yoğunluk yaşanırken sezon dışında talep düşebilir. Yanlış reklam kurulumu ise bütçeyi tüketir ama randevuya dönüşmeyen mesajlar getirir."
+    />
+    <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {problems.map((problem, index) => (
+        <Card title={problem.title} text={problem.text}>
+          <div class="mb-5 grid size-11 place-items-center rounded-[8px] border border-white/10 bg-white/[0.04] text-sm font-black text-lime">
+            0{index + 1}
+          </div>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
