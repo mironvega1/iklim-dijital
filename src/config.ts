@@ -1,7 +1,9 @@
 export const siteConfig = {
   brandName: "İklimDijital",
-  whatsappNumber: "90XXXXXXXXXX",
+  whatsappNumber: "905449652314",
   whatsappMessage: "Merhaba, klima firmam için reklam sistemi hakkında bilgi almak istiyorum.",
+  instagramUrl: "https://instagram.com/iklimdijital",
+  formAction: "",
   get whatsappUrl() {
     return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(this.whatsappMessage)}`;
   },

@@ -2,12 +2,12 @@
 import SectionHeader from "./SectionHeader.astro";
 
 const reportItems = [
-  "Toplam gelen mesaj",
-  "Ortalama mesaj maliyeti",
-  "En iyi çalışan hizmet kampanyası",
+  "Gelen mesaj sayısı",
+  "Mesaj başı maliyet",
+  "En çok talep gelen hizmet",
   "En iyi çalışan bölge",
-  "Gelen talep kalitesi",
-  "Bir sonraki ay optimizasyon planı",
+  "WhatsApp talep akışı",
+  "Bir sonraki optimizasyon önerisi",
 ];
 ---
 
@@ -16,15 +16,15 @@ const reportItems = [
     <div class="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
       <SectionHeader
         align="left"
-        title="Aylık süreçte hangi verileri takip ediyoruz?"
-        text="Reklam yönetimini yalnızca reklam açmak olarak görmüyoruz. Mesaj maliyeti, gelen talep kalitesi ve hizmet bölgelerine göre performansı düzenli takip ediyoruz."
+        title="Reklam sürecinde neyi takip ediyoruz?"
+        text="Reklam yönetimini uçak kokpiti gibi karmaşık tablolarla değil, klima firmasının karar almasını kolaylaştıran sade göstergelerle takip ederiz."
       />
 
       <div class="glass-panel rounded-[8px] p-5 md:p-7">
         <div class="mb-6 flex items-center justify-between gap-4">
           <div>
-            <p class="text-xs font-bold uppercase text-textMuted">Aylık Performans</p>
-            <h3 class="mt-1 text-2xl font-black text-white">Raporlama Paneli</h3>
+            <p class="text-xs font-bold uppercase text-textMuted">Sade Simülasyon</p>
+            <h3 class="mt-1 text-2xl font-black text-white">Takip Edilen Veriler</h3>
           </div>
           <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-bold text-lime">Temsili</span>
         </div>
@@ -43,7 +43,7 @@ const reportItems = [
           ))}
         </div>
         <p class="mt-5 text-xs leading-6 text-textMuted">
-          Raporlama alanı temsili olarak gösterilir. Gerçek sonuçlar şehir, sezon, bütçe, kreatif ve müşteri dönüş hızına göre değişebilir.
+          Bu alan temsili görünüm sunar. Gerçek sonuçlar şehir, bütçe, sezon, kreatif ve hizmet bölgesine göre değişebilir.
         </p>
       </div>
     </div>

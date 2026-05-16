@@ -12,6 +12,10 @@ const solutions = [
     text: "Reklamlar, müşterinin hızlıca bilgi alabileceği WhatsApp mesaj akışına yönlendirilir.",
   },
   {
+    title: "Bölgeye göre kampanya kurgusu",
+    text: "Hizmet alınabilecek bölgeler, talep yoğunluğu ve ulaşım sınırları kampanya kurgusuna dahil edilir.",
+  },
+  {
     title: "Veriye göre optimizasyon",
     text: "Mesaj maliyeti, talep kalitesi ve hizmet bölgesi verilerine göre reklamlar optimize edilir.",
   },
@@ -35,7 +39,7 @@ const solutions = [
       </div>
     </div>
 
-    <div class="mt-12 grid gap-4 md:grid-cols-3">
+    <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {solutions.map((solution) => (
         <Card title={solution.title} text={solution.text} />
       ))}

@@ -4,20 +4,24 @@ import Card from "./Card.astro";
 
 const problems = [
   {
-    title: "Sezonda yoğunluk, sezon dışında sessizlik",
-    text: "Talep dalgalandığında reklam planı yoksa takvim bir dönem dolar, diğer dönem tamamen boş kalabilir.",
+    title: "Reklam bütçesi nereye gidiyor belli değil",
+    text: "Harcanan bütçe görünür ama hangi hizmetten, hangi bölgeden ve hangi mesaj kalitesinden sonuç geldiği takip edilmez.",
   },
   {
-    title: "Fiyat sorup kaybolan müşteriler",
-    text: "Yanlış hedefleme, gerçek hizmet ihtiyacı olmayan ve sadece fiyat kıyaslayan mesajları artırabilir.",
+    title: "Fiyat sorup kaybolan kişilerle zaman kaybediliyor",
+    text: "Yanlış mesaj dili ve zayıf yönlendirme, gerçek müşteri yerine sadece fiyat soran kişiler getirebilir.",
   },
   {
-    title: "Reklama para harcayıp sonuç alamamak",
-    text: "Genel reklam kampanyaları, bakım, arıza, temizlik ve montaj niyetini aynı sepete atarak bütçeyi tüketebilir.",
+    title: "Sezonda yoğunluk var, sezon dışında sessizlik var",
+    text: "Klima firmaları çoğu zaman düzenli talep sistemi yerine sezona bağlı çalışır.",
   },
   {
-    title: "Gelen mesajları randevuya çevirememek",
-    text: "Mesaj akışı doğru kurulmadığında müşteri hızlı bilgi alamaz ve başka firmaya geçebilir.",
+    title: "Her hizmete aynı reklam yapılınca sonuç düşer",
+    text: "Bakım isteyen müşteriyle montaj isteyen müşteri aynı şekilde karar vermez.",
+  },
+  {
+    title: "WhatsApp mesajı geliyor ama randevuya dönüşmüyor",
+    text: "Mesaj akışı, sorular ve yönlendirme doğru kurulmazsa potansiyel müşteri kaybolur.",
   },
 ];
 ---
@@ -25,10 +29,10 @@ const problems = [
 <section id="sistem" class="py-20 md:py-28">
   <div class="section-shell">
     <SectionHeader
-      title="Klima firmalarının en büyük problemi düzensiz müşteri akışı"
-      text="Sezonda yoğunluk yaşanırken sezon dışında talep düşebilir. Yanlış reklam kurulumu ise bütçeyi tüketir ama randevuya dönüşmeyen mesajlar getirir."
+      title="Klima firmalarının asıl problemi reklam değil, düzensiz müşteri akışı"
+      text="Çoğu klima firması reklam verir ama düzenli mesaj alamaz. Gelen mesajlar fiyat sorup kaybolabilir, yanlış bölgeden gelebilir veya randevuya dönüşmeyebilir. İklimDijital, reklamı sadece görünürlük için değil, ölçülebilir talep oluşturmak için kurgular."
     />
-    <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
       {problems.map((problem, index) => (
         <Card title={problem.title} text={problem.text}>
           <div class="mb-5 grid size-11 place-items-center rounded-[8px] border border-white/10 bg-white/[0.04] text-sm font-black text-lime">

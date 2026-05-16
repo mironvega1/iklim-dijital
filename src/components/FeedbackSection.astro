@@ -1,0 +1,37 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import Card from "./Card.astro";
+
+const feedbackCards = [
+  {
+    title: "Gerçek veriyle güncellenecek",
+    text: "Onaylı kampanya sonuçları ve müşteri geri bildirimleri geldikçe bu alan güncellenecek.",
+  },
+  {
+    title: "Kampanya sonucu alanı",
+    text: "Mesaj akışı, talep kalitesi ve hizmet bölgesi sonuçları yalnızca gerçek verilerle paylaşılacak.",
+  },
+  {
+    title: "Müşteri yorumu alanı",
+    text: "Sahte yorum yerine, izin alınmış gerçek müşteri geri bildirimleri yayınlanacak.",
+  },
+];
+---
+
+<section class="py-20 md:py-28">
+  <div class="section-shell">
+    <SectionHeader
+      title="Müşteri geri bildirimleri"
+      text="Gerçek kampanya sonuçları ve müşteri geri bildirimleri onay alındığında bu bölümde yayınlanacaktır."
+    />
+    <div class="mt-12 grid gap-4 md:grid-cols-3">
+      {feedbackCards.map((item) => (
+        <Card title={item.title} text={item.text}>
+          <span class="mb-5 inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-bold uppercase text-lime">
+            Temsili alan
+          </span>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

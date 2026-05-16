@@ -1,0 +1,155 @@
+---
+import { siteConfig } from "../config";
+
+const services = [
+  "Klima bakım",
+  "Klima temizlik",
+  "Klima arıza",
+  "Klima montaj / sökme-takma",
+  "Hepsi",
+];
+---
+
+<section id="basvuru" class="py-20 md:py-28">
+  <div class="section-shell">
+    <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div class="lg:sticky lg:top-28">
+        <p class="mb-4 text-xs font-extrabold uppercase text-lime">Başvuru</p>
+        <h2 class="text-balance text-3xl font-black leading-tight text-white md:text-5xl">
+          Klima firmanız için uygunluk başvurusu yapın
+        </h2>
+        <p class="mt-5 text-base leading-8 text-textMuted md:text-lg">
+          Bölgenizi, hizmetlerinizi ve reklam bütçenizi paylaşın. Firmanız için nasıl bir müşteri akışı kurulabileceğini değerlendirelim.
+        </p>
+        <div class="mt-8 rounded-[8px] border border-white/10 bg-white/[0.035] p-5">
+          <p class="text-sm leading-7 text-textMuted">
+            Bilgileriniz yalnızca başvurunuzu değerlendirmek ve sizinle iletişime geçmek için kullanılır.
+          </p>
+          <a
+            href={siteConfig.instagramUrl}
+            target="_blank"
+            rel="noreferrer"
+            class="mt-4 inline-flex text-sm font-bold text-lime transition hover:text-white"
+          >
+            Instagram'da İklimDijital
+          </a>
+        </div>
+      </div>
+
+      <form
+        id="application-form"
+        class="glass-panel rounded-[8px] p-5 md:p-8"
+        data-whatsapp-number={siteConfig.whatsappNumber}
+        data-form-action={siteConfig.formAction}
+        novalidate
+      >
+        <div class="grid gap-4 md:grid-cols-2">
+          <label class="block">
+            <span class="text-sm font-bold text-white">Ad Soyad <span class="text-lime">*</span></span>
+            <input required name="Ad Soyad" type="text" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="Adınız ve soyadınız" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-bold text-white">Firma Adı</span>
+            <input name="Firma" type="text" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="Firma adınız" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-bold text-white">Telefon <span class="text-lime">*</span></span>
+            <input required name="Telefon" type="tel" inputmode="tel" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="05xx xxx xx xx" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-bold text-white">Şehir / İlçe <span class="text-lime">*</span></span>
+            <input required name="Şehir / İlçe" type="text" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="İstanbul / Kadıköy" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-bold text-white">Hizmet Bölgesi</span>
+            <input name="Hizmet Bölgesi" type="text" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="Çalıştığınız semtler" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-bold text-white">Günlük Reklam Bütçesi <span class="text-lime">*</span></span>
+            <input required name="Günlük Reklam Bütçesi" type="text" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="Örn. günlük 500 TL" />
+          </label>
+          <label class="block md:col-span-2">
+            <span class="text-sm font-bold text-white">En Çok Müşteri İstenen Hizmet</span>
+            <select name="İstenen Hizmet" class="mt-2 h-12 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 text-sm text-white outline-none transition focus:border-lime/50">
+              {services.map((service) => <option value={service}>{service}</option>)}
+            </select>
+          </label>
+          <fieldset class="md:col-span-2">
+            <legend class="text-sm font-bold text-white">Şu Anda Reklam Veriyor musunuz?</legend>
+            <div class="mt-3 flex flex-wrap gap-3">
+              <label class="flex items-center gap-2 rounded-full border border-white/10 bg-[#151515] px-4 py-3 text-sm font-semibold text-white">
+                <input type="radio" name="Şu anda reklam veriyor mu" value="Evet" class="accent-lime" />
+                Evet
+              </label>
+              <label class="flex items-center gap-2 rounded-full border border-white/10 bg-[#151515] px-4 py-3 text-sm font-semibold text-white">
+                <input type="radio" name="Şu anda reklam veriyor mu" value="Hayır" class="accent-lime" />
+                Hayır
+              </label>
+            </div>
+          </fieldset>
+          <label class="block md:col-span-2">
+            <span class="text-sm font-bold text-white">Ek Not</span>
+            <textarea name="Not" rows="4" class="mt-2 w-full rounded-[8px] border border-white/10 bg-[#151515] px-4 py-3 text-sm text-white outline-none transition placeholder:text-textMuted focus:border-lime/50" placeholder="Kısaca mevcut durumunuzu yazabilirsiniz"></textarea>
+          </label>
+        </div>
+
+        <p id="form-error" class="mt-5 hidden rounded-[8px] border border-lime/30 bg-lime/10 p-4 text-sm font-semibold text-white"></p>
+        <button type="submit" class="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-lime px-6 py-3 text-sm font-black text-ink shadow-[0_18px_50px_rgba(147,200,62,0.22)] transition hover:bg-white">
+          Başvuruyu WhatsApp ile Gönder
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("application-form");
+    const errorBox = document.getElementById("form-error");
+
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formElement = event.currentTarget;
+      if (!(formElement instanceof HTMLFormElement)) return;
+
+      const requiredFields = Array.from(formElement.querySelectorAll("[required]"));
+      const missingField = requiredFields.find((field) => field instanceof HTMLInputElement && !field.value.trim());
+      const phoneInput = formElement.querySelector('input[name="Telefon"]');
+      const phoneValue = phoneInput instanceof HTMLInputElement ? phoneInput.value.trim() : "";
+      const digitCount = phoneValue.replace(/\D/g, "").length;
+
+      if (missingField || digitCount < 10) {
+        if (errorBox) {
+          errorBox.textContent = digitCount < 10 ? "Lütfen geçerli bir telefon numarası girin." : "Lütfen zorunlu alanları doldurun.";
+          errorBox.classList.remove("hidden");
+        }
+        return;
+      }
+
+      if (errorBox) errorBox.classList.add("hidden");
+
+      const formAction = formElement.dataset.formAction || "";
+      if (formAction) {
+        formElement.action = formAction;
+        formElement.method = "POST";
+        formElement.submit();
+        return;
+      }
+
+      const data = new FormData(formElement);
+      const lines = [
+        "Merhaba, İklimDijital başvuru formundan geldim.",
+        "",
+        `Ad Soyad: ${data.get("Ad Soyad") || ""}`,
+        `Firma: ${data.get("Firma") || ""}`,
+        `Telefon: ${data.get("Telefon") || ""}`,
+        `Şehir / İlçe: ${data.get("Şehir / İlçe") || ""}`,
+        `Hizmet Bölgesi: ${data.get("Hizmet Bölgesi") || ""}`,
+        `Günlük Reklam Bütçesi: ${data.get("Günlük Reklam Bütçesi") || ""}`,
+        `İstenen Hizmet: ${data.get("İstenen Hizmet") || ""}`,
+        `Şu anda reklam veriyor mu: ${data.get("Şu anda reklam veriyor mu") || ""}`,
+        `Not: ${data.get("Not") || ""}`,
+      ];
+      const number = formElement.dataset.whatsappNumber || "905449652314";
+      window.location.href = `https://wa.me/${number}?text=${encodeURIComponent(lines.join("\n"))}`;
+    });
+  </script>
+</section>

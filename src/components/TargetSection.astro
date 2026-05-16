@@ -12,8 +12,12 @@ const transparency = [
     text: "100 mesaj hedefi satış, randevu veya ödeme yapan müşteri garantisi değildir.",
   },
   {
-    title: "Performans değişebilir",
+    title: "Performans şehir, sezon ve bütçeye göre değişebilir",
     text: "Sonuçlar şehir, sezon, kreatif, bütçe ve firmanın dönüş hızına göre değişebilir.",
+  },
+  {
+    title: "Gelen mesajların kalitesi birlikte değerlendirilir",
+    text: "Sadece mesaj sayısı değil, hizmet ihtiyacı, bölge uygunluğu ve dönüş hızı da birlikte takip edilir.",
   },
 ];
 ---
@@ -22,9 +26,9 @@ const transparency = [
   <div class="section-shell">
     <SectionHeader
       title="100 potansiyel müşteri mesajı hedefiyle çalışıyoruz"
-      text="Aylık çalışmada hedefimiz, klima firmanız için minimum 100 potansiyel müşteri mesajı oluşturmaktır. Bu hedef yalnızca reklamlar üzerinden gelen mesajlar için geçerlidir. Satışa dönüşme oranı; fiyatlandırma, dönüş hızı, hizmet bölgesi ve müşteriyle iletişim kalitesine göre değişebilir."
+      text="Aylık çalışmalarda hedefimiz, klima firmanız için minimum 100 potansiyel müşteri mesajı oluşturabilecek bir reklam sistemi kurmaktır. Bu hedef yalnızca reklamlar üzerinden gelen mesajlar için geçerlidir. Satış, randevu veya ödeme yapan müşteri garantisi değildir."
     />
-    <div class="mt-12 grid gap-4 md:grid-cols-3">
+    <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {transparency.map((item) => (
         <Card title={item.title} text={item.text} />
       ))}
