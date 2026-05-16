@@ -51,7 +51,7 @@ const services = [
 
       <form
         id="application-form"
-        class="glass-panel rounded-[8px] p-5 md:p-8"
+        class="glass-panel rounded-[8px] p-4 min-[380px]:p-5 md:p-8"
         data-whatsapp-number={siteConfig.whatsappNumber}
         data-form-action={siteConfig.formAction}
         novalidate
@@ -89,16 +89,16 @@ const services = [
           </label>
           <fieldset class="md:col-span-2">
             <legend class="text-sm font-bold text-white">Şu Anda Reklam Veriyor musunuz?</legend>
-            <div class="mt-3 flex flex-wrap gap-3">
-              <label class="flex items-center gap-2 rounded-full border border-white/10 bg-[#151515] px-4 py-3 text-sm font-semibold text-white">
+            <div class="mt-3 grid gap-3 sm:grid-cols-2">
+              <label class="flex min-h-12 items-center gap-2 rounded-[8px] border border-white/10 bg-[#151515] px-4 py-3 text-sm font-semibold text-white">
                 <input type="radio" name="Şu anda reklam veriyor mu" value="Evet" class="accent-lime" />
                 Evet
               </label>
-              <label class="flex items-center gap-2 rounded-full border border-white/10 bg-[#151515] px-4 py-3 text-sm font-semibold text-white">
+              <label class="flex min-h-12 items-center gap-2 rounded-[8px] border border-white/10 bg-[#151515] px-4 py-3 text-sm font-semibold text-white">
                 <input type="radio" name="Şu anda reklam veriyor mu" value="Hayır" class="accent-lime" />
                 Hayır
               </label>
-              <label class="flex items-center gap-2 rounded-full border border-white/10 bg-[#151515] px-4 py-3 text-sm font-semibold text-white">
+              <label class="flex min-h-12 items-center gap-2 rounded-[8px] border border-white/10 bg-[#151515] px-4 py-3 text-sm font-semibold text-white sm:col-span-2">
                 <input type="radio" name="Şu anda reklam veriyor mu" value="Daha önce verdim ama sonuç alamadım" class="accent-lime" />
                 Daha önce verdim ama sonuç alamadım
               </label>

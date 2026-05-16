@@ -45,14 +45,14 @@ const toolCards = [
       </p>
     </div>
 
-    <div class="glass-panel relative overflow-hidden rounded-[8px] p-5 md:p-8" data-growth-simulator>
+    <div class="glass-panel relative overflow-hidden rounded-[8px] p-4 min-[380px]:p-5 md:p-8" data-growth-simulator>
       <div class="absolute right-0 top-0 h-80 w-80 translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/20 blur-3xl"></div>
       <div class="relative grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
         <div class="rounded-[8px] border border-white/10 bg-[#0d0d0d] p-5 md:p-6">
-          <div class="mb-6 flex items-center justify-between gap-4">
+          <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
             <div>
               <p class="text-xs font-black uppercase text-lime">Tahmini reklam senaryosu</p>
-              <h3 class="mt-1 text-2xl font-black text-white">Reklam verirseniz ne olabilir?</h3>
+              <h3 class="mt-1 text-xl font-black text-white min-[380px]:text-2xl">Reklam verirseniz ne olabilir?</h3>
             </div>
             <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-bold uppercase text-textMuted">
               Kural bazlı hesaplama
@@ -99,7 +99,7 @@ const toolCards = [
         </div>
 
         <div>
-          <div class="mb-5 grid grid-cols-4 gap-2 rounded-[8px] border border-lime/20 bg-lime/[0.06] p-3 text-center text-[11px] font-black uppercase text-white/80">
+          <div class="mb-5 grid grid-cols-2 gap-2 rounded-[8px] border border-lime/20 bg-lime/[0.06] p-3 text-center text-[11px] font-black uppercase text-white/80 sm:grid-cols-4">
             <span>Bütçe</span>
             <span>Mesaj</span>
             <span>Randevu</span>
@@ -109,22 +109,22 @@ const toolCards = [
           <div class="grid gap-3 md:grid-cols-2">
             <article class="rounded-[8px] border border-white/10 bg-[#151515] p-5">
               <p class="text-xs font-bold uppercase text-textMuted">Aylık reklam bütçesi</p>
-              <p class="mt-3 text-3xl font-black text-white" data-monthly-budget>15.000 TL</p>
+              <p class="mt-3 text-2xl font-black text-white min-[380px]:text-3xl" data-monthly-budget>15.000 TL</p>
               <p class="mt-2 text-xs leading-6 text-textMuted">Günlük bütçenin 30 günlük tahmini karşılığı.</p>
             </article>
             <article class="rounded-[8px] border border-white/10 bg-[#151515] p-5">
               <p class="text-xs font-bold uppercase text-textMuted">Tahmini mesaj potansiyeli</p>
-              <p class="mt-3 text-3xl font-black text-white" data-estimated-messages>300 mesaj</p>
+              <p class="mt-3 text-2xl font-black text-white min-[380px]:text-3xl" data-estimated-messages>300 mesaj</p>
               <p class="mt-2 text-xs leading-6 text-textMuted">Hedef mesaj maliyetine göre hesaplanan tahmini mesaj potansiyeli.</p>
             </article>
             <article class="rounded-[8px] border border-white/10 bg-[#151515] p-5">
               <p class="text-xs font-bold uppercase text-textMuted">Kendini karşılaması için</p>
-              <p class="mt-3 text-3xl font-black text-white" data-break-even>10 iş</p>
+              <p class="mt-3 text-2xl font-black text-white min-[380px]:text-3xl" data-break-even>10 iş</p>
               <p class="mt-2 text-xs leading-6 text-textMuted">Reklam bütçesini karşılamak için gereken yaklaşık iş sayısı.</p>
             </article>
             <article class="rounded-[8px] border border-lime/25 bg-lime/[0.08] p-5">
               <p class="text-xs font-bold uppercase text-lime">Büyüme senaryosu</p>
-              <p class="mt-3 text-2xl font-black leading-tight text-white" data-growth-scenario>15 iş alınırsa 22.500 TL servis hacmi oluşabilir.</p>
+              <p class="mt-3 text-xl font-black leading-tight text-white min-[380px]:text-2xl" data-growth-scenario>15 iş alınırsa 22.500 TL servis hacmi oluşabilir.</p>
               <p class="mt-2 text-xs leading-6 text-textMuted">Yalnızca senaryo amaçlıdır. Gerçek ciro garantisi değildir.</p>
             </article>
           </div>
