@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mironvega1.github.io/iklim-dijital/sitemap.xml
