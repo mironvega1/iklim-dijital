@@ -1,22 +1,46 @@
 ---
 import SectionHeader from "./SectionHeader.astro";
-import Card from "./Card.astro";
 
 const feedbackCards = [
   {
-    title: "Gerçek veriyle güncellenecek",
-    text: "Onaylı kampanya sonuçları ve müşteri geri bildirimleri geldikçe bu alan güncellenecek.",
-    detail: "Bu bölümde sahte isim, sahte firma veya uydurma başarı hikayesi kullanılmaz. Yayına alınacak her sonuç onaylı olmalıdır.",
+    profile: "Temsili servis profili 01",
+    title: "Mesaj maliyeti kontrol altına alınca",
+    text: "Daha önce mesajların nereden geldiğini takip edemiyorduk. Hizmet ve bölge ayrımı yapılınca hangi talebin değerli olduğunu daha net görmeye başladık.",
   },
   {
-    title: "Kampanya sonucu alanı",
-    text: "Mesaj akışı, talep kalitesi ve hizmet bölgesi sonuçları yalnızca gerçek verilerle paylaşılacak.",
-    detail: "Paylaşılacak veriler reklam bütçesi, şehir, sezon ve hizmet bölgesi bağlamıyla birlikte verilir.",
+    profile: "Temsili servis profili 02",
+    title: "Yanlış bölgeden gelen mesaj azalınca",
+    text: "Servis vermediğimiz ilçelerden gelen talepler zaman kaybettiriyordu. Bölge netleşince WhatsApp görüşmeleri daha işe yarar hale geldi.",
   },
   {
-    title: "Müşteri yorumu alanı",
-    text: "Sahte yorum yerine, izin alınmış gerçek müşteri geri bildirimleri yayınlanacak.",
-    detail: "Güven hissi kısa vadeli görünümle değil, gerçek geri bildirim ve doğru beklentiyle kurulmalıdır.",
+    profile: "Temsili servis profili 03",
+    title: "Bakım ve arıza aynı reklamda karışmayınca",
+    text: "Bakım isteyen müşteriyle arıza yaşayan müşterinin beklentisi farklı. Ayrı reklam açılarıyla konuşmalar daha net başladı.",
+  },
+  {
+    profile: "Temsili servis profili 04",
+    title: "WhatsApp akışı daha düzenli olunca",
+    text: "Müşteri ilk mesajda hizmet türünü, ilçesini ve ihtiyacını daha net yazınca randevu konuşmasına geçmek kolaylaştı.",
+  },
+  {
+    profile: "Temsili servis profili 05",
+    title: "Boş günleri doldurma fikri netleşince",
+    text: "Sadece sezona güvenmek yerine bakım, temizlik ve montaj tarafında hangi hizmete ağırlık verileceğini görmek daha güven verdi.",
+  },
+  {
+    profile: "Temsili servis profili 06",
+    title: "Sadece ucuz mesaj değil, doğru mesaj",
+    text: "Önemli olan her mesajı almak değil; hizmet bölgesinden, gerçek ihtiyacı olan ve hızlı dönüş bekleyen kişilere ulaşmak.",
+  },
+  {
+    profile: "Temsili servis profili 07",
+    title: "Firma sahibi için okunabilir rapor",
+    text: "Karmaşık tablolar yerine hangi hizmet, hangi bölge ve hangi mesaj dili daha anlamlı çalışıyor bunu görmek karar vermeyi kolaylaştırır.",
+  },
+  {
+    profile: "Temsili servis profili 08",
+    title: "Reklam bütçesi daha bilinçli yönetilince",
+    text: "Bütçeyi her yere yaymak yerine çalışan hizmetlere ve doğru bölgelere yönlendirmek, reklam sürecini daha kontrollü hissettirir.",
   },
 ];
 ---
@@ -24,16 +48,25 @@ const feedbackCards = [
 <section class="py-20 md:py-28">
   <div class="section-shell">
     <SectionHeader
-      title="Müşteri geri bildirimleri"
-      text="Gerçek kampanya sonuçları ve müşteri geri bildirimleri onay alındığında bu bölümde yayınlanacaktır."
+      title="Müşteri geri bildirimi örnekleri"
+      text="Aşağıdaki kartlar gerçek müşteri yorumu değildir; klima firmalarının yaşayabileceği durumları anlatan temsili örneklerdir. Onaylı referanslar geldikçe bu alan gerçek verilerle güncellenecektir."
     />
-    <div class="mt-12 grid gap-4 md:grid-cols-3">
+    <div class="mt-8 rounded-[8px] border border-lime/20 bg-lime/[0.07] p-4 text-sm font-semibold leading-7 text-white/80">
+      Temsili örnektir. Gerçek referans, gerçek firma adı veya kesin sonuç iddiası değildir.
+    </div>
+    <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {feedbackCards.map((item) => (
-        <Card title={item.title} text={item.text} detail={item.detail} actionLabel="Güven notu">
-          <span class="mb-5 inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-bold uppercase text-lime">
-            Temsili alan
+        <article class="premium-card rounded-[8px] p-5">
+          <span class="mb-5 inline-flex rounded-full border border-lime/25 bg-lime/10 px-3 py-2 text-[11px] font-black uppercase text-lime">
+            Temsili örnek
           </span>
-        </Card>
+          <p class="text-xs font-bold uppercase text-textMuted">{item.profile}</p>
+          <h3 class="mt-3 text-lg font-black leading-7 text-white">{item.title}</h3>
+          <p class="mt-3 text-sm font-semibold leading-7 text-textMuted">{item.text}</p>
+          <p class="mt-5 border-t border-white/10 pt-4 text-[11px] font-bold uppercase leading-5 text-white/35">
+            Gerçek referans değildir
+          </p>
+        </article>
       ))}
     </div>
   </div>
